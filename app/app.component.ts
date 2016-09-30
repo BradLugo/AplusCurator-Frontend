@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-    title = 'A+ Curator Instructor Management';
+    title = 'A+ Curator Management';
 }
