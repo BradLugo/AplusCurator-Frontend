@@ -6,7 +6,9 @@
         "**/*.js": {
             "when": "$(basename).ts"
         },
-        "**/*.map": true
+        "**/*.map": true,
+        "node_modules": true,
+        "typings": true
     },
     "files.autoSave": "afterDelay",
     "typescript.tsdk": "node_modules/typescript/lib"
