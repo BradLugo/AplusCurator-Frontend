@@ -35,3 +35,11 @@ jspm_packages
 
 # Optional REPL history
 .node_repl_history
+
+# Angular2.gitignore
+typings
+app/**/*.js
+app/**/*.map
+node_modules
+jspm_packages
+bower_components
