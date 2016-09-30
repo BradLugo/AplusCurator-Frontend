@@ -22,7 +22,7 @@ export class InstructorService {
 
   getInstructor(id: number): Promise<Instructor> {
     return this.getInstructors()
-               .then(Instructors => Instructors.find(Instructor => Instructor.instructorId === id));
+               .then(instructors => instructors.find(instructor => instructor.instructorId === id));
   }
 
   delete(id: number): Promise<void> {
