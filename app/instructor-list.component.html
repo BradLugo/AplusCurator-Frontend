@@ -34,9 +34,9 @@
 
 <!-- Small Table -->
 <div>
-    <ul class="instructors">
+    <ul>
         <li *ngFor="let instructor of instructors" (click)="onSelect(instructor)" [class.selected]="instructor === selectedInstructor">
-            <span class="badge">{{instructor.instructorId}}</span>
+            <span>{{instructor.instructorId}}</span>
             <span>{{instructor.firstName}} {{instructor.lastName}}</span>
         </li>
     </ul>
@@ -44,8 +44,6 @@
 
 <!-- Selector view -->
 <div *ngIf="selectedInstructor">
-    <h2>
-        {{selectedInstructor.firstName | uppercase}} {{selectedInstructor.lastName | uppercase}} is my instructor
-    </h2>
+    <h2>{{selectedInstructor.firstName | uppercase}} {{selectedInstructor.lastName | uppercase}} is my instructor</h2>
     <button (click)="gotoDetail()">View Details</button>
 </div>-->

@@ -8,7 +8,7 @@ import { InstructorService } from './instructor.service';
     moduleId: module.id,
     selector: 'my-instructor-list',
     templateUrl: 'instructor-list.component.html',
-    styleUrls: ['instructor-list.component.css'],
+    // styleUrls: ['instructor-list.component.css'],
 })
 
 export class InstructorListComponent implements OnInit {
@@ -20,12 +20,19 @@ export class InstructorListComponent implements OnInit {
         private instructorService: InstructorService,
         private router: Router) { }
 
+    /**
+     * Call instructor.service to get Instructors
+     * then assigns them to instructor[]
+     */
     getInstructors(): void {
-        this.instructorService
-            .getInstructors()
+        this.instructorService.getInstructors()
             .then(instructors => this.instructors = instructors);
     }
 
+    /**
+     * Function for the add button
+     * Insert instructor only in firstName
+     */
     add(name: string): void {
         name = name.trim();
         if (!name) { return; }
@@ -36,6 +43,10 @@ export class InstructorListComponent implements OnInit {
             });
     }
 
+    /**
+     * Function for the delete button
+     * Delete instructor using it's id
+     */
     delete(instructor: Instructor): void {
         this.instructorService
             .delete(instructor.instructorId)
@@ -45,14 +56,24 @@ export class InstructorListComponent implements OnInit {
             });
     }
 
+    /**
+     * Get the group of instructor
+     */
     ngOnInit(): void {
         this.getInstructors();
     }
 
+    /**
+     * Save selection
+     */
     onSelect(instructor: Instructor): void {
         this.selectedInstructor = instructor;
     }
 
+    /**
+     * Function for the View Detail button
+     * Route to selected instructor
+     */
     gotoDetail(): void {
         this.router.navigate(['/instructor', this.selectedInstructor.instructorId]);
     }
