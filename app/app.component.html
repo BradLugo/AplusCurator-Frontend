@@ -1,8 +1,17 @@
+<!-- Main Title page -->
+<div>
+    {{title}}
+</div>
+
+<!-- Navigator -->
 <div>
     <nav>
-        <div>{{title}}</div>
         <div><a routerLink="/welcome">Home</a></div>
         <div><a routerLink="/instructors">Instructor List</a></div>
     </nav>
+</div>
+
+<!-- Routing View -->
+<div>
     <router-outlet></router-outlet>
 </div>

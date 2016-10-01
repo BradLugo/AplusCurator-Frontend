@@ -1,20 +1,51 @@
-<h2>{{title}}</h2>
+<!-- Title page-->
+<div>
+    <h2>{{title}}</h2>
+</div>
+
+<!-- Adding instructor -->
 <div>
     <label>Instructor name:</label> <input #instructorName />
-    <button (click)="add(instructorName.value); instructorName.value=''">
-    Add
-  </button>
+    <button (click)="add(instructorName.value); instructorName.value=''">Add</button>
 </div>
-<ul class="instructors">
-    <li *ngFor="let instructor of instructors" (click)="onSelect(instructor)" [class.selected]="instructor === selectedInstructor">
-        <span class="badge">{{instructor.instructorId}}</span>
-        <span>{{instructor.firstName}} {{instructor.lastName}}</span>
-        <button class="delete" (click)="delete(instructor); $event.stopPropagation()">x</button>
-    </li>
-</ul>
+
+<!--Big table-->
+<div class='table-responsive'>
+    <table class='table'>
+        <!--Table head-->
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Remove</th>
+            </tr>
+        </thead>
+        <!--Table body-->
+        <tbody>
+            <tr *ngFor="let instructor of instructors">
+                <td>{{instructor.instructorId}}</td>
+                <td><a routerLink="/instructor/{{instructor.instructorId}}"> {{instructor.firstName}}</a></td>
+                <td><a routerLink="/instructor">{{instructor.lastName}}</a></td>
+                <td><button (click)="delete(instructor); $event.stopPropagation()">x</button></td>
+        </tbody>
+    </table>
+</div>
+
+<!-- Small Table -->
+<div>
+    <ul class="instructors">
+        <li *ngFor="let instructor of instructors" (click)="onSelect(instructor)" [class.selected]="instructor === selectedInstructor">
+            <span class="badge">{{instructor.instructorId}}</span>
+            <span>{{instructor.firstName}} {{instructor.lastName}}</span>
+        </li>
+    </ul>
+</div>
+
+<!-- Selector view -->
 <div *ngIf="selectedInstructor">
     <h2>
         {{selectedInstructor.firstName | uppercase}} {{selectedInstructor.lastName | uppercase}} is my instructor
     </h2>
     <button (click)="gotoDetail()">View Details</button>
-</div>
+</div>-->
