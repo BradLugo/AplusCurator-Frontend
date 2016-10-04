@@ -1,0 +1,58 @@
+<div *ngIf="student">
+    <h2>{{student.firstName}} {{student.lastName}} details!</h2>
+    <div><label>ID: </label>{{student.studentId}}</div>
+    <div>
+        <label>First Name: </label>
+        <input [(ngModel)]="student.firstName" placeholder="First Name" />
+    </div>
+    <div>
+        <label>Last Name: </label>
+        <input [(ngModel)]="student.lastName" placeholder="Last Name" />
+    </div>
+    <div>
+        <label>Date Of Birth: </label>
+        <input [(ngModel)]="student.dateOfBirth" placeholder="Date Of Birth" />
+    </div>
+    <div>
+        <label>Gender: </label>
+        <input [(ngModel)]="student.gender" placeholder="Gender" />
+    </div>
+    <div>
+        <label>Current Grade: </label>
+        <input [(ngModel)]="student.curGrade" placeholder="Current Grade" />
+    </div>
+    <div>
+        <label>Status: </label>
+        <input [(ngModel)]="student.status" placeholder="Status" />
+    </div>
+    <div>
+        <label>Guardian Account: </label>
+        <input [(ngModel)]="student.guardianAccount" placeholder="Guardian Account" />
+    </div>
+    <div>
+        <label>Last Date Attend: </label>
+        <input [(ngModel)]="student.lastDateAttend" placeholder="Last Date Attend" />
+    </div>
+    <div>
+        <label>Learning Plan: </label>
+        <input [(ngModel)]="student.learningPlan" placeholder="Learning Plan" />
+    </div>
+    <div>
+        <label>Enrollment Plan: </label>
+        <input [(ngModel)]="student.enrollmentPlan" placeholder="Enrollment Plan" />
+    </div>
+    <div>
+        <label>Description Info: </label>
+        <input [(ngModel)]="student.descriptionInfo" placeholder="Description Info" />
+    </div>
+    <div>
+        <label>System Info: </label>
+        <input [(ngModel)]="student.systemInfo" placeholder="System Info" />
+    </div>
+    <div>
+        <label>Attachment: </label>
+        <input [(ngModel)]="student.attachment" placeholder="Attachment" />
+    </div>
+    <button (click)="goBack()">Back</button>
+    <button (click)="save()">Save</button>
+</div>
