@@ -17,6 +17,7 @@ export class InstructorService {
   getInstructors(): Promise<Instructor[]> {
     return this.http.get(this.instructorsUrl)
       .toPromise()
+      // .then(response => response.json() as Instructor[])
       .then(response => response.json().data as Instructor[])
       .catch(this.handleError);
   }
