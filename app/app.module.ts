@@ -7,17 +7,17 @@ import { HttpModule } from '@angular/http';
 
 // Imports for loading & configuring the in-memory web api
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryInstructorDataService } from './in-memory-data-instructor.service';
-import { InMemoryStudentDataService } from './in-memory-data-student.service';
+import { InMemoryInstructorDataService } from './api/instructor.test';
+import { InMemoryStudentDataService } from './api/student.test';
 
 import { AppComponent } from './app.component';
-import { WelcomeComponent } from './welcome.component';
-import { InstructorListComponent } from './instructor-list.component';
-import { InstructorDetailComponent } from './instructor-detail.component';
-import { InstructorService } from './instructor.service';
-import { StudentListComponent } from './student-list.component';
-import { StudentDetailComponent } from './student-detail.component';
-import { StudentService } from './student.service';
+import { WelcomeComponent } from './home/welcome.component';
+import { InstructorListComponent } from './instructor/instructor-list.component';
+import { InstructorDetailComponent } from './instructor/instructor-detail.component';
+import { InstructorService } from './instructor/instructor.service';
+import { StudentListComponent } from './student/student-list.component';
+import { StudentDetailComponent } from './student/student-detail.component';
+import { StudentService } from './student/student.service';
 
 import { AppRoutingModule } from './app.routing';
 

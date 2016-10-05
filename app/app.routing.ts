@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { WelcomeComponent } from './welcome.component';
-import { InstructorListComponent } from './instructor-list.component';
-import { InstructorDetailComponent } from './instructor-detail.component';
-import { StudentListComponent } from './student-list.component';
-import { StudentDetailComponent } from './student-detail.component';
+import { WelcomeComponent } from './home/welcome.component';
+import { InstructorListComponent } from './instructor/instructor-list.component';
+import { InstructorDetailComponent } from './instructor/instructor-detail.component';
+import { StudentListComponent } from './student/student-list.component';
+import { StudentDetailComponent } from './student/student-detail.component';
 
 const routes: Routes = [
     { path: '', redirectTo: '/welcome', pathMatch: 'full' },
