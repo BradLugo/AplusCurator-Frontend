@@ -8,8 +8,12 @@
         },
         "**/*.map": true,
         "node_modules": true,
-        "typings": true
+        "typings": true,
+        "npm*": true,
+        "css": true,
+        "js": true,
+        "fonts": true
     },
-    "files.autoSave": "afterDelay",
-    "typescript.tsdk": "node_modules/typescript/lib"
+    "files.autoSave": "afterDelay"
+    // "typescript.tsdk": "node_modules/typescript/lib"
 }

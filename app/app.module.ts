@@ -1,45 +1,48 @@
-import './rxjs-extensions';
-
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 // Imports for loading & configuring the in-memory web api
-import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryInstructorDataService } from './api/instructor.test';
-import { InMemoryStudentDataService } from './api/student.test';
+// import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+// import { InMemoryDataService } from './in-memory-data.service';
 
 import { AppComponent } from './app.component';
-import { WelcomeComponent } from './home/welcome.component';
-import { InstructorListComponent } from './instructor/instructor-list.component';
-import { InstructorDetailComponent } from './instructor/instructor-detail.component';
-import { InstructorService } from './instructor/instructor.service';
-import { StudentListComponent } from './student/student-list.component';
-import { StudentDetailComponent } from './student/student-detail.component';
-import { StudentService } from './student/student.service';
-
-import { AppRoutingModule } from './app.routing';
+import { HomeComponent } from './home/home.component';
+import { AttendenceComponent } from './attendence/attendence.component';
+import { StudentsComponent } from './students/students.component';
+import { InstructorsComponent } from './instructors/instructors.component';
+import { LessonsComponent } from './lessons/lessons.component';
+import { AccountsComponent } from './accounts/accounts.component';
 
 @NgModule({
     imports: [
         BrowserModule,
-        FormsModule,
         HttpModule,
-        InMemoryWebApiModule.forRoot(InMemoryStudentDataService, InMemoryInstructorDataService),
-        // InMemoryWebApiModule.forRoot(InMemoryInstructorDataService),
-        AppRoutingModule,
+        FormsModule,
+        // InMemoryWebApiModule.forRoot(InMemoryDataService),
+        RouterModule.forRoot([
+            { path: '', redirectTo: '/home', pathMatch: 'full' },
+            { path: 'home', component: HomeComponent },
+            { path: 'attendence', component: AttendenceComponent },
+            { path: 'students', component: StudentsComponent },
+            { path: 'instructors', component: InstructorsComponent },
+            { path: 'lessons', component: LessonsComponent },
+            { path: 'accounts', component: AccountsComponent },
+            // { path: 'detail/:id', component: HeroDetailComponent },
+        ])
     ],
     declarations: [
         AppComponent,
-        WelcomeComponent,
-        InstructorListComponent,
-        InstructorDetailComponent,
-        StudentListComponent,
-        StudentDetailComponent,
-    ],
-    providers: [InstructorService, StudentService],
+        HomeComponent,
+        AttendenceComponent,
+        StudentsComponent,
+        InstructorsComponent,
+        LessonsComponent,
+        AccountsComponent,
+        ],
+    providers: [/* TODO: Providers go here */],
     bootstrap: [AppComponent],
 })
-
 export class AppModule { }
