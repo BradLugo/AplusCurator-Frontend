@@ -14,6 +14,8 @@
         "js": true,
         "fonts": true
     },
-    "files.autoSave": "afterDelay"
+    "files.autoSave": "afterDelay",
+    "editor.formatOnType": false,
+    "editor.formatOnSave": true
     // "typescript.tsdk": "node_modules/typescript/lib"
 }
