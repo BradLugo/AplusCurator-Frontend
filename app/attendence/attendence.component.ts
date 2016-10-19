@@ -4,7 +4,7 @@ import { Attendence } from './shared/attendence.model';
 import { AttendenceService } from './shared/attendence.service';
 
 @Component({
-    moduleId: module.id,
+	moduleId: module.id,
 	selector: 'attendence',
 	templateUrl: 'attendence.component.html',
 	providers: [AttendenceService]

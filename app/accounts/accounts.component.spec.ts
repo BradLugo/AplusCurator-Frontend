@@ -34,6 +34,6 @@ describe('a accounts component', () => {
 // Mock of the original accounts service
 class MockAccountsService extends AccountsService {
 	getList(): Observable<any> {
-		return Observable.from([ { id: 1, name: 'One'}, { id: 2, name: 'Two'} ]);
+		return Observable.from([{ id: 1, name: 'One' }, { id: 2, name: 'Two' }]);
 	}
 }

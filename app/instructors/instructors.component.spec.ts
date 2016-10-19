@@ -34,6 +34,6 @@ describe('a instructors component', () => {
 // Mock of the original instructors service
 class MockInstructorsService extends InstructorsService {
 	getList(): Observable<any> {
-		return Observable.from([ { id: 1, name: 'One'}, { id: 2, name: 'Two'} ]);
+		return Observable.from([{ id: 1, name: 'One' }, { id: 2, name: 'Two' }]);
 	}
 }

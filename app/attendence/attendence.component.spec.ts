@@ -34,6 +34,6 @@ describe('a attendence component', () => {
 // Mock of the original attendence service
 class MockAttendenceService extends AttendenceService {
 	getList(): Observable<any> {
-		return Observable.from([ { id: 1, name: 'One'}, { id: 2, name: 'Two'} ]);
+		return Observable.from([{ id: 1, name: 'One' }, { id: 2, name: 'Two' }]);
 	}
 }
