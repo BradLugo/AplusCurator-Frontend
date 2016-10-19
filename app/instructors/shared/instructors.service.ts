@@ -11,6 +11,6 @@ export class InstructorsService {
 	constructor(private http: Http) { }
 
 	getList(): Observable<Instructors[]> {
-		return this.http.get('/api/list').map(res => res.json() as Instructors[]);
+		return this.http.get('/api/instructors.json').map(res => res.json() as Instructors[]);
 	}
 }
