@@ -1,4 +1,30 @@
-<div class="students"> Hello StudentsComponent! </div>
+<div class="students"> Hello Students! </div>
+
+<div>
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>First Nme</th>
+				<th>Last Name</th>
+				<th>Email</th>
+				<th>Phone Number</th>
+				<th>Mobile Phone Number</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let student of Students">
+				<td>{{Students.studentID}}</td>
+				<td>{{Students.firstName}}</td>
+				<td>{{Students.lastName}}</td>
+				<td>{{Students.email}}</td>
+				<td>{{Students.address}}</td>
+				
+
+			</tr>
+			<button> Add Student </button>
+		</tbody>
+	</table>
 <!--add table and buttons and etc-->
 <!-- *ngFor="let item of list" is useful for loop to replicate data-->
 <!--item = students-->
