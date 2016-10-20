@@ -13,18 +13,20 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr *ngFor="let student of Students">
-				<td>{{Students.studentID}}</td>
-				<td>{{Students.firstName}}</td>
-				<td>{{Students.lastName}}</td>
-				<td>{{Students.email}}</td>
-				<td>{{Students.address}}</td>
-				
+			<tr *ngFor="let student of students">
+				<td>{{student.studentID}}</td>
+				<td>{{student.firstName}}</td>
+				<td>{{student.lastName}}</td>
+				<td>{{student.email}}</td>
+				<td>{{student.address}}</td>
+
 
 			</tr>
 			<button> Add Student </button>
 		</tbody>
 	</table>
+</div>
+
 <!--add table and buttons and etc-->
 <!-- *ngFor="let item of list" is useful for loop to replicate data-->
 <!--item = students-->
