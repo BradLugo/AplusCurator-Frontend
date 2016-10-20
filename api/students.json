@@ -6,17 +6,15 @@
         "middleName": "Alexander",
         "address": "25250 Not My Real Address ln.",
         "email": "notarealemail@notarealdomain.com",
-        "phoneNumber": "1234567890",
-        
+        "phoneNumber": "1234567890"
     },
     {
-	"StudentId": 2,
+        "StudentId": 2,
         "firstName": "Michael",
         "lastName": "Geyer",
         "middleName": "Alexander",
         "address": "25250 Not My Real Address ln.",
         "email": "notarealemail@notarealdomain.com",
-        "phoneNumber": "1234567890",
-        
-    },
-	]
+        "phoneNumber": "1234567890"
+    }
+]

@@ -12,6 +12,6 @@ export class StudentsService {
 
 	// change /api/list to /api/students.json
 	getList(): Observable<Students[]> {
-		return this.http.get('/api/list').map(res => res.json() as Students[]);
+		return this.http.get('/api/students.json').map(res => res.json() as Students[]);
 	}
 }
