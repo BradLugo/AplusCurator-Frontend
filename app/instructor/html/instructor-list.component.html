@@ -1,0 +1,58 @@
+<div class="instructor-list"> Hello InstructorListComponent! </div>
+
+<div>
+	<h2>My Instructors</h2>
+	<div>
+		<label>Instructor name:</label> <input #instructorName />
+		<button (click)="add(instructorName.value); instructorName.value=''">Add</button>
+	</div>
+	<div>
+		<table>
+			<thead>
+				<tr>
+					<td>ID</td>
+					<td>firstName</td>
+					<td>middleName</td>
+					<td>lastName</td>
+					<!--<td>address</td>-->
+					<td>email</td>
+					<!--<td>Phone</td>-->
+					<td>Mobile</td>
+					<!--<td>EC Name</td>-->
+					<!--<td>EC Phone</td>-->
+					<td>Role</td>
+					<td>Status</td>
+					<!--<td>Start Date</td>-->
+					<!--<td>End Date</td>-->
+					<td>Delete</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let instructor of instructors" (click)="onSelect(instructor)" [class.selected]="instructor === selectedInstructor">
+					<td><span>{{instructor.instructorId}}</span></td>
+					<td>{{instructor.firstName}}</td>
+					<td>{{instructor.middleName}}</td>
+					<td>{{instructor.lastName}}</td>
+					<!--<td>{{instructor.address}}</td>-->
+					<td>{{instructor.email}}</td>
+					<!--<td>{{instructor.phoneNumber}}</td>-->
+					<td>{{instructor.mobilePhoneNumber}}</td>
+					<!--<td>{{instructor.emergencyContactName}}</td>-->
+					<!--<td>{{instructor.emergencyContactPhone}}</td>-->
+					<td>{{instructor.role}}</td>
+					<td>{{instructor.status}}</td>
+					<!--<td>{{instructor.employmentStartDate}}</td>-->
+					<!--<td>{{instructor.employmentTerminationDate}}</td>-->
+					<button class="delete" (click)="delete(instructor); $event.stopPropagation()">x</button>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+
+	<div *ngIf="selectedInstructor">
+		<h2> {{selectedInstructor.firstName | uppercase}} {{selectedInstructor.lastName | uppercase}} is my instructor </h2>
+		<button (click)="gotoDetail()">View Details</button>
+	</div>
+	
+</div>

@@ -1,0 +1,30 @@
+<div class="instructor-detail"> Hello InstructorDetailComponent! </div>
+
+<div *ngIf="instructor">
+
+	<div>
+		<h2>{{instructor.firstName}} {{instructor.lastName}} details!</h2>
+	</div>
+
+	<div><label>ID: </label>{{instructor.instructorId}}</div>
+	<div><label>First Name: </label> <input [(ngModel)]="instructor.firstName" placeholder="firstName" /></div>
+	<div><label>Middle Name: </label> <input [(ngModel)]="instructor.middleName" placeholder="middleName" /></div>
+	<div><label>Last Name: </label> <input [(ngModel)]="instructor.lastName" placeholder="lastName" /></div>
+	<div><label>Address: </label> <input [(ngModel)]="instructor.address" placeholder="address" /></div>
+	<div><label>Email: </label> <input [(ngModel)]="instructor.email" placeholder="email" /></div>
+	<div><label>Phone: </label> <input [(ngModel)]="instructor.phoneNumber" placeholder="phoneNumber" /></div>
+	<div><label>Mobile: </label> <input [(ngModel)]="instructor.mobilePhoneNumber" placeholder="mobilePhoneNumber" /></div>
+	<div><label>EC Name: </label> <input [(ngModel)]="instructor.emergencyContactName" placeholder="emergencyContactName" /></div>
+	<div><label>EC Phone: </label> <input [(ngModel)]="instructor.emergencyContactPhone" placeholder="emergencyContactPhone" /></div>
+	<div><label>Role: </label> <input [(ngModel)]="instructor.role" placeholder="role" /></div>
+	<div><label>Status: </label> <input [(ngModel)]="instructor.status" placeholder="status" /></div>
+	<div><label>Start Date: </label> <input [(ngModel)]="instructor.employmentStartDate" placeholder="employmentStartDate" /></div>
+	<div><label>End Date: </label> <input [(ngModel)]="instructor.employmentTerminationDate" placeholder="employmentTerminationDate"
+		/></div>
+
+	<div>
+		<button (click)="goBack()">Back</button>
+		<button (click)="save()">Save</button>
+	</div>
+
+</div>

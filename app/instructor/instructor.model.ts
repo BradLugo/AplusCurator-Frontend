@@ -1,4 +1,4 @@
-export class Instructors {
+export class Instructor {
 	instructorId: number;
 	firstName: string;
 	lastName: string;
