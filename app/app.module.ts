@@ -23,7 +23,9 @@ import { HomeComponent } from './home/home.component';
 
 import { AttendenceComponent } from './attendence/attendence.component';
 
-import { StudentsComponent } from './students/students.component';
+import { StudentService } from './student/student.service';
+import { StudentListComponent } from './student/student-list.component';
+import { StudentDetailComponent } from './student/student-detail.component';
 
 import { InstructorService } from './instructor/instructor.service';
 import { InstructorListComponent } from './instructor/instructor-list.component';
@@ -53,14 +55,16 @@ import { AccountsComponent } from './accounts/accounts.component';
         AppComponent,
         HomeComponent,
         AttendenceComponent,
-        StudentsComponent,
+        StudentListComponent,
+        StudentDetailComponent,
         InstructorListComponent,
         InstructorDetailComponent,
         LessonsComponent,
         AccountsComponent,
     ],
     providers: [
-        InstructorService
+        InstructorService,
+        StudentService,
     ],
     bootstrap: [AppComponent],
 })

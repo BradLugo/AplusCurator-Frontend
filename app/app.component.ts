@@ -14,7 +14,7 @@ export class AppComponent {
         this.items = [
             { label: 'Home', routerLink: ['/home'] },
             { label: 'Attendence', routerLink: ['/attendence'] },
-            { label: 'Students', routerLink: ['/students'] },
+            { label: 'Students', routerLink: ['/student'] },
             { label: 'Instructors', routerLink: ['/instructor'] },
             { label: 'Learning Plans', routerLink: ['/lessons'] },
             { label: 'Accounts', routerLink: ['/accounts'] }

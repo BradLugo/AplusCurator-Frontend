@@ -10,7 +10,7 @@
 		<input #gb type="text" pInputText size="50" style="float:left" placeholder="Global Filter">
 	</div>
 	<p-dataTable [value]="instructors" [rows]="20" [paginator]="true" [pageLinks]="10" [rowsPerPageOptions]="[10,20,50]" [globalFilter]="gb"
-		selectionMode="single" [(selection)]="selectedInstructor">
+		selectionMode="single" [(selection)]="selectedInstructor" resizableColumns="true">
 		<header>List of Instructors</header>
 		<p-column field="firstName" header="First Name"></p-column>
 		<!--<p-column field="middleName" header="Middle Name"></p-column>-->
@@ -21,8 +21,8 @@
 		<!--<p-column field="mobilePhoneNumber" header="Mobile"></p-column>-->
 		<!--<p-column field="emergencyContactName" header="EC Name"></p-column>-->
 		<!--<p-column field="emergencyContactPhone" header="EC Phone"></p-column>-->
-		<p-column field="role" header="Role"></p-column>
-		<p-column field="status" header="Status"></p-column>
+		<!--<p-column field="role" header="Role"></p-column>-->
+		<!--<p-column field="status" header="Status"></p-column>-->
 		<!--<p-column field="employmentStartDate" header="Start Date"></p-column>-->
 		<!--<p-column field="employmentTerminationDate" header="End Date"></p-column>-->
 	</p-dataTable>

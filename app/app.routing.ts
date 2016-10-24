@@ -4,7 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { AttendenceComponent } from './attendence/attendence.component';
-import { StudentsComponent } from './students/students.component';
+import { StudentListComponent } from './student/student-list.component';
+import { StudentDetailComponent } from './student/student-detail.component';
 import { InstructorListComponent } from './instructor/instructor-list.component';
 import { InstructorDetailComponent } from './instructor/instructor-detail.component';
 import { LessonsComponent } from './lessons/lessons.component';
@@ -15,9 +16,13 @@ const routes: Routes = [
   //{ path: '', component: AppComponent },
   { path: 'home', component: HomeComponent },
   { path: 'attendence', component: AttendenceComponent },
-  { path: 'students', component: StudentsComponent },
+
+  { path: 'student', component: StudentListComponent },
+  { path: 'detail/:studentId', component: StudentDetailComponent },
+
   { path: 'instructor', component: InstructorListComponent },
   { path: 'detail/:instructorId', component: InstructorDetailComponent },
+
   { path: 'lessons', component: LessonsComponent },
   { path: 'accounts', component: AccountsComponent },
 ];
