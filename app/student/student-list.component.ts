@@ -53,6 +53,6 @@ export class StudentListComponent implements OnInit {
 	}
 
 	gotoDetail(): void {
-		this.router.navigate(['/detail', this.selectedStudent.studentId]);
+		this.router.navigate(['/studentDetail', this.selectedStudent.studentId]);
 	}
 }

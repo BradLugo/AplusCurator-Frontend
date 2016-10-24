@@ -18,10 +18,10 @@ const routes: Routes = [
   { path: 'attendence', component: AttendenceComponent },
 
   { path: 'student', component: StudentListComponent },
-  { path: 'detail/:studentId', component: StudentDetailComponent },
+  { path: 'studentDetail/:studentId', component: StudentDetailComponent },
 
   { path: 'instructor', component: InstructorListComponent },
-  { path: 'detail/:instructorId', component: InstructorDetailComponent },
+  { path: 'instructorDetail/:instructorId', component: InstructorDetailComponent },
 
   { path: 'lessons', component: LessonsComponent },
   { path: 'accounts', component: AccountsComponent },
