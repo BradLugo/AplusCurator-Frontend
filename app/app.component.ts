@@ -8,9 +8,11 @@ import { MenuItem } from 'primeng/primeng';
 })
 export class AppComponent {
 
+    // Use for TabMenu
     private items: MenuItem[];
 
     ngOnInit() {
+        // In item contains tab of routerLink
         this.items = [
             { label: 'Home', routerLink: ['/home'] },
             { label: 'Attendence', routerLink: ['/attendence'] },
