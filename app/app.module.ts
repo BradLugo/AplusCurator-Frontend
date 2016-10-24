@@ -6,8 +6,8 @@ import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app.routing';
 
 // Imports for loading & configuring the in-memory web api
-import { InMemoryWebApiModule } from 'angular-in-memory-web-api/in-memory-web-api.module';
-import { InMemoryDataService } from './instructor/instructorsMem';
+// import { InMemoryWebApiModule } from 'angular-in-memory-web-api/in-memory-web-api.module';
+// import { InMemoryDataService } from './instructor/instructorsMem';
 
 import { AppComponent } from './app.component';
 
@@ -30,7 +30,7 @@ import { AccountsComponent } from './accounts/accounts.component';
         BrowserModule,
         FormsModule,
         HttpModule,
-        InMemoryWebApiModule.forRoot(InMemoryDataService),
+        // InMemoryWebApiModule.forRoot(InMemoryDataService),
         AppRoutingModule
     ],
     declarations: [
