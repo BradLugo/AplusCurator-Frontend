@@ -3,6 +3,14 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 
+import { InputTextModule } from 'primeng/primeng';
+import { DataTableModule, SharedModule } from 'primeng/primeng';
+import { ButtonModule } from 'primeng/primeng';
+import { PanelModule } from 'primeng/primeng';
+import { TabMenuModule } from 'primeng/primeng';
+import { FieldsetModule } from 'primeng/primeng';
+import { ScheduleModule } from 'primeng/primeng';
+
 import { AppRoutingModule } from './app.routing';
 
 // Imports for loading & configuring the in-memory web api
@@ -31,7 +39,15 @@ import { AccountsComponent } from './accounts/accounts.component';
         FormsModule,
         HttpModule,
         // InMemoryWebApiModule.forRoot(InMemoryDataService),
-        AppRoutingModule
+        AppRoutingModule,
+        InputTextModule,
+        DataTableModule,
+        SharedModule,
+        ButtonModule,
+        PanelModule,
+        TabMenuModule,
+        FieldsetModule,
+        ScheduleModule,
     ],
     declarations: [
         AppComponent,

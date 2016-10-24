@@ -1,38 +1,42 @@
-<div class="home"> Hello HomeComponent! </div>
+<div>
 
-<div class="uk-container uk-container-center uk-margin-top uk-margin-large-bottom">
-
-	<div class="uk-grid">
-		<div class="uk-width-1-1">
+	<div class="ui-g">
+		<div class="ui-g-12">
 			<h1>Mathnasium of Lala-Land</h1>
 		</div>
 	</div>
 
-	<div class="uk-grid uk-grid-match" data-uk-grid-match="{target:'.uk-panel'}">
-		<!--Updates Panel-->
-		<div class="uk-width-1-4">
-			<div class="uk-panel uk-panel-box">
-				<h2 class="uk-icon-sticky-note uk-icon-large uk-text-primary"> Links</h2>
-				<p>Bob Ross's account is overdue for payment</p>
-				<p>New transfer student missing Guardian account</p>
+	<div class="ui-g">
+
+		<div class="ui-g-4">
+
+			<div class="ui-g">
+				<!--Updates Panel-->
+				<div class="ui-g-6" style="height: 100%">
+					<p-fieldset legend="Updates">
+						<p>Bob Ross's account is overdue for payment</p>
+						<p>New transfer student missing Guardian account</p>
+					</p-fieldset>
+				</div>
+
+				<!--Links Panel-->
+				<div class="ui-g-6" style="height: 100%">
+					<p-fieldset legend="Links">
+						<p><a href="">Forums</a></p>
+						<p><a href="">News</a></p>
+					</p-fieldset>
+				</div>
 			</div>
+
 		</div>
 
-		<!--Links Panel-->
-		<div class="uk-width-1-4">
-			<div class="uk-panel uk-panel-box">
-				<h2 class="uk-icon-exclamation uk-icon-large uk-text-primary"> Links</h2>
-				<p><a href="">Forums</a></p>
-				<p><a href="">News</a></p>
-			</div>
+		<div class="ui-g-8">
+			<!--Calendar Panel-->
+			<p-fieldset legend="Calendar">
+				<!--<p-schedule [events]="events"></p-schedule>-->
+			</p-fieldset>
 		</div>
 
-		<!--Calendar Panel-->
-		<div class="uk-width-2-4">
-			<div class="uk-panel uk-panel-box">
-				<h2 class="uk-icon-calendar uk-icon-large uk-text-primary"> Calendar</h2>
-			</div>
-		</div>
 	</div>
 
 </div>

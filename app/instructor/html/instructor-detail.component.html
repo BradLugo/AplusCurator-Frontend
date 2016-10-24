@@ -1,30 +1,70 @@
-<div class="instructor-detail"> Hello InstructorDetailComponent! </div>
-
 <div *ngIf="instructor">
+	<p-panel>
+
+		<header>
+			<div class="ui-helper-clearfix">
+				<span class="ui-panel-title" style="font-size:20px;display:inline-block;margin-top:2px">{{instructor.firstName}} {{instructor.lastName}} : {{instructor.instructorId}}</span>
+				<button pButton style="margin-top:0px" label="Edit" (click)="toggleDisabled()"></button>
+			</div>
+		</header>
+
+		<div><label>First Name: </label>
+			<input type="text" pInputText [disabled]="disabled" [(ngModel)]="instructor.firstName" />
+		</div>
+		<div>
+			<label>Middle Name: </label>
+			<input type="text" pInputText [disabled]="disabled" [(ngModel)]="instructor.middleName" />
+		</div>
+		<div>
+			<label>Last Name: </label>
+			<input type="text" pInputText [disabled]="disabled" [(ngModel)]="instructor.lastName" />
+		</div>
+		<div>
+			<label>Address: </label>
+			<input type="text" pInputText [disabled]="disabled" [(ngModel)]="instructor.address" />
+		</div>
+		<div>
+			<label>Email: </label>
+			<input type="text" pInputText [disabled]="disabled" [(ngModel)]="instructor.email" />
+		</div>
+		<div>
+			<label>Phone: </label>
+			<input type="text" pInputText [disabled]="disabled" [(ngModel)]="instructor.phoneNumber" />
+		</div>
+		<div>
+			<label>Mobile: </label>
+			<input type="text" pInputText [disabled]="disabled" [(ngModel)]="instructor.mobilePhoneNumber" />
+		</div>
+		<div>
+			<label>EC Name: </label>
+			<input type="text" pInputText [disabled]="disabled" [(ngModel)]="instructor.emergencyContactName" />
+		</div>
+		<div>
+			<label>EC Phone: </label>
+			<input type="text" pInputText [disabled]="disabled" [(ngModel)]="instructor.emergencyContactPhone" />
+		</div>
+		<div>
+			<label>Role: </label>
+			<input type="text" pInputText [disabled]="disabled" [(ngModel)]="instructor.role" />
+		</div>
+		<div>
+			<label>Status: </label>
+			<input type="text" pInputText [disabled]="disabled" [(ngModel)]="instructor.status" />
+		</div>
+		<div>
+			<label>Start Date: </label>
+			<input type="text" pInputText [disabled]="disabled" [(ngModel)]="instructor.employmentStartDate" />
+		</div>
+		<div>
+			<label>End Date: </label>
+			<input type="text" pInputText [disabled]="disabled" [(ngModel)]="instructor.employmentTerminationDate" />
+		</div>
+
+	</p-panel>
 
 	<div>
-		<h2>{{instructor.firstName}} {{instructor.lastName}} details!</h2>
-	</div>
-
-	<div><label>ID: </label>{{instructor.instructorId}}</div>
-	<div><label>First Name: </label> <input [(ngModel)]="instructor.firstName" placeholder="firstName" /></div>
-	<div><label>Middle Name: </label> <input [(ngModel)]="instructor.middleName" placeholder="middleName" /></div>
-	<div><label>Last Name: </label> <input [(ngModel)]="instructor.lastName" placeholder="lastName" /></div>
-	<div><label>Address: </label> <input [(ngModel)]="instructor.address" placeholder="address" /></div>
-	<div><label>Email: </label> <input [(ngModel)]="instructor.email" placeholder="email" /></div>
-	<div><label>Phone: </label> <input [(ngModel)]="instructor.phoneNumber" placeholder="phoneNumber" /></div>
-	<div><label>Mobile: </label> <input [(ngModel)]="instructor.mobilePhoneNumber" placeholder="mobilePhoneNumber" /></div>
-	<div><label>EC Name: </label> <input [(ngModel)]="instructor.emergencyContactName" placeholder="emergencyContactName" /></div>
-	<div><label>EC Phone: </label> <input [(ngModel)]="instructor.emergencyContactPhone" placeholder="emergencyContactPhone" /></div>
-	<div><label>Role: </label> <input [(ngModel)]="instructor.role" placeholder="role" /></div>
-	<div><label>Status: </label> <input [(ngModel)]="instructor.status" placeholder="status" /></div>
-	<div><label>Start Date: </label> <input [(ngModel)]="instructor.employmentStartDate" placeholder="employmentStartDate" /></div>
-	<div><label>End Date: </label> <input [(ngModel)]="instructor.employmentTerminationDate" placeholder="employmentTerminationDate"
-		/></div>
-
-	<div>
-		<button (click)="goBack()">Back</button>
-		<button (click)="save()">Save</button>
+		<button type="button" (click)="goBack()" pButton label="Back"></button>
+		<button type="button" (click)="save()" pButton label="Save"></button>
 	</div>
 
 </div>

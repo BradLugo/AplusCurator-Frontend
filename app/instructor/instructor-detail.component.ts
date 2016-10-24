@@ -15,6 +15,7 @@ import { InstructorService } from './instructor.service';
 
 export class InstructorDetailComponent implements OnInit {
 	instructor: Instructor;
+	disabled: boolean = true;
 
 	constructor(
 		private instructorService: InstructorService,
@@ -29,6 +30,11 @@ export class InstructorDetailComponent implements OnInit {
 				.then(instructor => this.instructor = instructor);
 		});
 	}
+
+	toggleDisabled() {
+		this.disabled = !this.disabled;
+	}
+
 
 	save(): void {
 		this.instructorService.update(this.instructor)
