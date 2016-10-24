@@ -9,14 +9,14 @@ import { Instructor } from './instructor.model';
 export class InstructorService {
 
   private headers = new Headers({ 'Content-Type': 'application/json' });
-  private instructorsUrl = 'app/instructors';  // URL to web api
+  private instructorsUrl = 'http://localhost:5000/api/instructors';  // URL to web api
 
   constructor(private http: Http) { }
 
   getInstructors(): Promise<Instructor[]> {
     return this.http.get(this.instructorsUrl)
       .toPromise()
-      .then(response => response.json().data as Instructor[])
+      .then(response => response.json() as Instructor[])
       .catch(this.handleError);
   }
 
@@ -25,15 +25,16 @@ export class InstructorService {
       .then(instructors => instructors.find(instructor => instructor.instructorId === id));
   }
 
-  delete(id: number): Promise<void> {
-    const url = `${this.instructorsUrl}/${id}`;
-    return this.http.delete(url, { headers: this.headers })
+  delete(instructor: Instructor): Promise<void> {
+    const url = `${this.instructorsUrl}/body/delete`;
+    return this.http.post(url, JSON.stringify(instructor), { headers: this.headers })
       .toPromise()
       .then(() => null)
       .catch(this.handleError);
   }
 
   create(firstname: string): Promise<Instructor> {
+    const url = `${this.instructorsUrl}/body/create`
     return this.http
       .post(this.instructorsUrl, JSON.stringify(
         {
@@ -58,9 +59,9 @@ export class InstructorService {
   }
 
   update(instructor: Instructor): Promise<Instructor> {
-    const url = `${this.instructorsUrl}/${instructor.instructorId}`;
+    const url = `${this.instructorsUrl}/body/update`;
     return this.http
-      .put(url, JSON.stringify(instructor), { headers: this.headers })
+      .post(url, JSON.stringify(instructor), { headers: this.headers })
       .toPromise()
       .then(() => instructor)
       .catch(this.handleError);

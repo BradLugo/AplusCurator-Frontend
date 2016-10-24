@@ -37,7 +37,7 @@ export class InstructorListComponent implements OnInit {
 
 	delete(instructor: Instructor): void {
 		this.instructorService
-			.delete(instructor.instructorId)
+			.delete(instructor)
 			.then(() => {
 				this.instructors = this.instructors.filter(h => h !== instructor);
 				if (this.selectedInstructor === instructor) { this.selectedInstructor = null; }
