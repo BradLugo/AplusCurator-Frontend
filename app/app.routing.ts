@@ -5,7 +5,8 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { AttendenceComponent } from './attendence/attendence.component';
 import { StudentsComponent } from './students/students.component';
-import { InstructorsComponent } from './instructors/instructors.component';
+import { InstructorListComponent } from './instructor/instructor-list.component';
+import { InstructorDetailComponent } from './instructor/instructor-detail.component';
 import { LessonsComponent } from './lessons/lessons.component';
 import { AccountsComponent } from './accounts/accounts.component';
 
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'attendence', component: AttendenceComponent },
   { path: 'students', component: StudentsComponent },
-  { path: 'instructors', component: InstructorsComponent },
+  { path: 'instructor', component: InstructorListComponent },
+  { path: 'detail/:instructorId', component: InstructorDetailComponent },
   { path: 'lessons', component: LessonsComponent },
   { path: 'accounts', component: AccountsComponent },
 ];
