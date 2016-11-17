@@ -4,20 +4,22 @@
 		<button (click)="add(instructorName.value); instructorName.value=''">Add</button>
 	</div>-->
 
+	<p-fieldset legend="Instructors">
+
 	<!--Testing NGPrime-->
 	<div class="ui-widget-header ui-helper-clearfix" style="padding:4px 10px;border-bottom: 0 none">
 		<i class="fa fa-search" style="float:left;margin:4px 4px 0 0"></i>
 		<input #gb type="text" pInputText size="50" style="float:left" placeholder="Global Filter">
 	</div>
 	<p-dataTable [value]="instructors" [rows]="20" [paginator]="true" [pageLinks]="10" [rowsPerPageOptions]="[10,20,50]" [globalFilter]="gb"
-		selectionMode="single" [(selection)]="selectedInstructor" resizableColumns="true">
+		selectionMode="single" [(selection)]="selectedInstructor" resizableColumns="true" reorderableColumns="true">
 		<header>List of Instructors</header>
-		<p-column field="firstName" header="First Name"></p-column>
+		<p-column field="firstName" header="First Name" [filter]="true" filterMatchMode="contains"></p-column>
 		<!--<p-column field="middleName" header="Middle Name"></p-column>-->
-		<p-column field="lastName" header="Last Name"></p-column>
+		<p-column field="lastName" header="Last Name" [filter]="true" filterMatchMode="contains"></p-column>
 		<!--<p-column field="address" header="Address"></p-column>-->
-		<p-column field="email" header="Email"></p-column>
-		<p-column field="phoneNumber" header="Phone"></p-column>
+		<p-column field="email" header="Email" [filter]="true" filterMatchMode="contains"></p-column>
+		<p-column field="phoneNumber" header="Phone" [filter]="true" filterMatchMode="contains"></p-column>
 		<!--<p-column field="mobilePhoneNumber" header="Mobile"></p-column>-->
 		<!--<p-column field="emergencyContactName" header="EC Name"></p-column>-->
 		<!--<p-column field="emergencyContactPhone" header="EC Phone"></p-column>-->
@@ -32,5 +34,7 @@
 		<button pButton type label="View Details" (click)="gotoDetail()"></button>
 		<button pButton type label="Delete" (click)="delete(selectedInstructor); $event.stopPropagation()"></button>
 	</div>
+
+	</p-fieldset>
 
 </div>

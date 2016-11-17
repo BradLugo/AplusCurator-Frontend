@@ -7,9 +7,10 @@ import { InputTextModule } from 'primeng/primeng';
 import { DataTableModule, SharedModule } from 'primeng/primeng';
 import { ButtonModule } from 'primeng/primeng';
 import { PanelModule } from 'primeng/primeng';
-import { TabMenuModule } from 'primeng/primeng';
+import { MenuModule } from 'primeng/primeng';
 import { FieldsetModule } from 'primeng/primeng';
 import { ScheduleModule } from 'primeng/primeng';
+import {DialogModule} from 'primeng/primeng';
 
 import { AppRoutingModule } from './app.routing';
 
@@ -47,9 +48,10 @@ import { AccountsComponent } from './accounts/accounts.component';
         SharedModule,
         ButtonModule,
         PanelModule,
-        TabMenuModule,
+        MenuModule,
         FieldsetModule,
         ScheduleModule,
+        DialogModule,
     ],
     declarations: [
         AppComponent,

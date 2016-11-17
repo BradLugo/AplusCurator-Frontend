@@ -1,12 +1,11 @@
 <!-- Main Title page -->
-<div class="uk-text-center">
-	<h1>A Plus Curator</h1>
-</div>
+<h1>A Plus Curator</h1>
 
-<!-- Tab Menu -->
-<p-tabMenu [model]="items"></p-tabMenu>
-
-<!-- Routing View -->
-<div>
-	<router-outlet></router-outlet>
+<div class="ui-g">
+	<div class="ui-g-12 ui-md-2 ui-g-nopad">
+		<p-menu [model]="items"></p-menu>
+	</div>
+	<div class="ui-g-12 ui-md-10 ui-g-nopad">
+		<router-outlet></router-outlet>
+	</div>
 </div>

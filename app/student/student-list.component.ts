@@ -12,8 +12,11 @@ import { StudentService } from './student.service';
 })
 
 export class StudentListComponent implements OnInit {
-	students: Student[] = [];
+	displayDialog: boolean;
+	student: Student = new Student();
 	selectedStudent: Student;
+	newStudent: boolean;
+	students: Student[] = [];
 
 	constructor(
 		private studentService: StudentService,
@@ -25,34 +28,48 @@ export class StudentListComponent implements OnInit {
 			.then(students => this.students = students);
 	}
 
-	add(name: string): void {
-		name = name.trim();
-		if (!name) { return; }
-		this.studentService.create(name)
-			.then(student => {
-				this.students.push(student);
-				this.selectedStudent = null;
-			});
+	showDialogToAdd() {
+		this.newStudent = true;
+		this.student = new Student();
+		this.displayDialog = true;
 	}
 
-	delete(student: Student): void {
-		this.studentService
-			.delete(student)
-			.then(() => {
-				this.students = this.students.filter(h => h !== student);
-				if (this.selectedStudent === student) { this.selectedStudent = null; }
-			});
+	save() {
+		if (this.newStudent)
+			this.students.push(this.student);
+		else
+			this.students[this.findSelectedStudentIndex()] = this.student;
+
+		this.student = null;
+		this.displayDialog = false;
+	}
+
+	delete() {
+		this.students.splice(this.findSelectedStudentIndex(), 1);
+		this.student = null;
+		this.displayDialog = false;
+	}
+
+	onRowSelect(event) {
+		this.newStudent = false;
+		this.student = this.selectedStudent;
+		this.displayDialog = true;
+	}
+
+	cloneStudent(s: Student): Student {
+		let student = new Student();
+		for (let prop in s) {
+			student[prop] = s[prop];
+		}
+		return student;
+	}
+
+	findSelectedStudentIndex(): number {
+		return this.students.indexOf(this.selectedStudent);
 	}
 
 	ngOnInit(): void {
 		this.getStudents();
 	}
 
-	onSelect(student: Student): void {
-		this.selectedStudent = student;
-	}
-
-	gotoDetail(): void {
-		this.router.navigate(['/studentDetail', this.selectedStudent.studentId]);
-	}
 }
