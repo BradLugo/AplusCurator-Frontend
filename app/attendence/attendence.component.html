@@ -1,1 +1,56 @@
-<div class="attendence"> Hello AttendenceComponent! </div>
+<p-fieldset legend="Attendence">
+
+    <h3 class="first">Default</h3>
+
+    <p-tabView>
+
+        <p-tabPanel header="Students">
+            <h3>Students Drag and Drop Sign in</h3>
+            <div class="ui-grid ui-grid-pad ui-grid-responsive">
+                <div class="ui-grid-row">
+                    <div class="ui-grid-col-2 ui-widget-content" style="border-right:0 none">
+                        <ul style="margin:0;padding:0">
+                            <li *ngFor="let student of notCurrentStudents" class="ui-state-default ui-helper-clearfix" pDraggable="students" (onDragStart)="dragStart($event,student)"
+                                (onDragEnd)="dragEnd($event)">
+                                <div style="margin:8px 0 0 8px;float:left">{{student.firstName}} - {{student.lastName}}</div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="ui-grid-col-6 ui-widget-content" pDroppable="students" (onDrop)="dropStudent($event)" [ngClass]="{'ui-state-highlight':draggedStudent}">
+                        <p-dataTable [value]="selectedStudents">
+                            <p-column field="firstName" header="First Name"></p-column>
+                            <p-column field="lastName" header="Last Name"></p-column>
+                            <p-column field="currentGrade" header="Grade"></p-column>
+                            <p-column field="status" header="Status"></p-column>
+                        </p-dataTable>
+                    </div>
+                </div>
+            </div>
+        </p-tabPanel>
+
+        <p-tabPanel header="Instructors">
+            <h3>Instructors Drag and Drop Sign in</h3>
+            <div class="ui-grid ui-grid-pad ui-grid-responsive">
+                <div class="ui-grid-row">
+                    <div class="ui-grid-col-2 ui-widget-content" style="border-right:0 none">
+                        <ul style="margin:0;padding:0">
+                            <li *ngFor="let instructor of notCurrentInstructors" class="ui-state-default ui-helper-clearfix" pDraggable="instructors" (onDragStart)="dragStart($event,instructor)"
+                                (onDragEnd)="dragEnd($event)">
+                                <div style="margin:8px 0 0 8px;float:left">{{instructor.firstName}} - {{instructor.lastName}}</div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="ui-grid-col-6 ui-widget-content" pDroppable="instructors" (onDrop)="dropInstructor($event)" [ngClass]="{'ui-state-highlight':draggedInstructor}">
+                        <p-dataTable [value]="selectedInstructors">
+                            <p-column field="firstName" header="First Name"></p-column>
+                            <p-column field="lastName" header="Last Name"></p-column>
+                            <p-column field="status" header="Status"></p-column>
+                        </p-dataTable>
+                    </div>
+                </div>
+            </div>
+        </p-tabPanel>
+
+    </p-tabView>
+
+</p-fieldset>

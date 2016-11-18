@@ -1,0 +1,83 @@
+<div>
+	<!--<div>
+		<label>Student name:</label> <input #studentName />
+		<button (click)="add(studentName.value); studentName.value=''">Add</button>
+	</div>-->
+
+	<p-fieldset legend="Students">
+
+		<!--Testing NGPrime-->
+		<div class="ui-widget-header ui-helper-clearfix" style="padding:4px 10px;border-bottom: 0 none">
+			<i class="fa fa-search" style="float:left;margin:4px 4px 0 0"></i>
+			<input #gb type="text" pInputText size="50" style="float:left" placeholder="Global Filter">
+		</div>
+
+		<p-dataTable #dt [value]="students" exportFilename="students" [rows]="20" [paginator]="true" [pageLinks]="10" [rowsPerPageOptions]="[10,20,50]"
+			[globalFilter]="gb" selectionMode="single" [(selection)]="selectedStudent" resizableColumns="true" reorderableColumns="true"
+			(onRowSelect)="onRowSelect($event)" [responsive]="true">
+			<header> List of Students </header>
+			<p-column field="firstName" header="First Name" [filter]="true" filterMatchMode="contains"></p-column>
+			<!--<p-column field="middleName" header="Middle Name"></p-column>-->
+			<p-column field="lastName" header="Last Name" [filter]="true" filterMatchMode="contains"></p-column>
+			<!--<p-column field="address" header="Address"></p-column>-->
+			<!--<p-column field="email" header="Email"></p-column>-->
+			<!--<p-column field="phoneNumber" header="Phone"></p-column>-->
+			<!--<p-column field="mobilePhoneNumber" header="Mobile"></p-column>-->
+			<!--<p-column field="emergencyContactName" header="EC Name"></p-column>-->
+			<!--<p-column field="emergencyContactPhone" header="EC Phone"></p-column>-->
+			<p-column field="currentGrade" header="Grade" [filter]="true" filterMatchMode="contains"></p-column>
+			<p-column field="status" header="Status" [filter]="true" filterMatchMode="contains"></p-column>
+			<footer>
+				<div class="ui-helper-clearfix">
+					<button type="button" pButton (click)="showDialogToAdd()" label="Add"></button>
+					<button type="button" pButton label="CSV" (click)="dt.exportCSV()"></button>
+				</div>
+			</footer>
+		</p-dataTable>
+
+		<p-dialog header="Student Details" [(visible)]="displayDialog" showEffect="fade" [modal]="true" [responsive]="true">
+			<div class="ui-grid ui-grid-responsive ui-fluid" *ngIf="student">
+				<div class="ui-grid-row">
+					<div class="ui-grid-col-4"><label for="firstName">First Name</label></div>
+					<div class="ui-grid-col-8"><input pInputText id="first name" [(ngModel)]="student.firstName" /></div>
+				</div>
+				<div class="ui-grid-row">
+					<div class="ui-grid-col-4"><label for="lastName">Last Name</label></div>
+					<div class="ui-grid-col-8"><input pInputText id="last name" [(ngModel)]="student.lastName" /></div>
+				</div>
+				<div class="ui-grid-row">
+					<div class="ui-grid-col-4"><label for="dateOfBirth">Date of Birth</label></div>
+					<div class="ui-grid-col-8"><input pInputText id="dateOfBirth" [(ngModel)]="student.dateOfBirth" /></div>
+				</div>
+				<div class="ui-grid-row">
+					<div class="ui-grid-col-4"><label for="gender">Gender</label></div>
+					<div class="ui-grid-col-8"><input pInputText id="gender" [(ngModel)]="student.gender" /></div>
+				</div>
+				<div class="ui-grid-row">
+					<div class="ui-grid-col-4"><label for="currentGrade">Grade</label></div>
+					<div class="ui-grid-col-8"><input pInputText id="currentGrade" [(ngModel)]="student.currentGrade" /></div>
+				</div>
+				<div class="ui-grid-row">
+					<div class="ui-grid-col-4"><label for="status">Status</label></div>
+					<div class="ui-grid-col-8"><input pInputText id="status" [(ngModel)]="student.status" /></div>
+				</div>
+				<div class="ui-grid-row">
+					<div class="ui-grid-col-4"><label for="description">Description</label></div>
+					<div class="ui-grid-col-8"><input pInputText id="description" [(ngModel)]="student.description" /></div>
+				</div>
+				<div class="ui-grid-row">
+					<div class="ui-grid-col-4"><label for="systemInfo">System Info</label></div>
+					<div class="ui-grid-col-8"><input pInputText id="systemInfo" [(ngModel)]="student.systemInfo" /></div>
+				</div>
+			</div>
+			<footer>
+				<div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
+					<button type="button" pButton (click)="cancel()" label="Cancel"></button>
+					<button type="button" pButton (click)="save()" label="Save"></button>
+				</div>
+			</footer>
+		</p-dialog>
+
+	</p-fieldset>
+
+</div>

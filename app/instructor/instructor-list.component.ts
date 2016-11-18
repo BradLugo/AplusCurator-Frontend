@@ -7,8 +7,8 @@ import { InstructorService } from './instructor.service';
 @Component({
 	moduleId: module.id,
 	selector: 'instructor-list',
-	templateUrl: './html/instructor-list.component.html',
-	styleUrls: ['./css/instructor-list.component.css']
+	templateUrl: './instructor-list.component.html',
+	// styleUrls: ['./css/instructor-list.component.css']
 })
 
 export class InstructorListComponent implements OnInit {

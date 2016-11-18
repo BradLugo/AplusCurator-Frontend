@@ -8,8 +8,8 @@ import { InstructorService } from './instructor.service';
 @Component({
 	moduleId: module.id,
 	selector: 'instructor-detail',
-	templateUrl: './html/instructor-detail.component.html',
-	styleUrls: ['./css/instructor-detail.component.css'],
+	templateUrl: './instructor-detail.component.html',
+	// styleUrls: ['./css/instructor-detail.component.css'],
 	providers: [InstructorService]
 })
 

@@ -8,8 +8,8 @@ import { StudentService } from './student.service';
 @Component({
 	moduleId: module.id,
 	selector: 'student-detail',
-	templateUrl: './html/student-detail.component.html',
-	styleUrls: ['./css/student-detail.component.css'],
+	templateUrl: './student-detail.component.html',
+	// styleUrls: ['./css/student-detail.component.css'],
 	providers: [StudentService]
 })
 
@@ -43,5 +43,11 @@ export class StudentDetailComponent implements OnInit {
 
 	goBack(): void {
 		this.location.back();
+	}
+
+	delete(): void {
+		this.studentService
+			.delete(this.student)
+			.then(() => this.goBack());
 	}
 }

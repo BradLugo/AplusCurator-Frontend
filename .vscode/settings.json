@@ -10,6 +10,8 @@
         "node_modules": true,
         "typings": true,
         "npm*": true
-    },
-    "files.autoSave": "afterDelay"
+    }
+    // "files.autoSave": "afterDelay"
+,
+"typescript.check.workspaceVersion": false
 }
