@@ -33,19 +33,19 @@ export class StudentService {
       .catch(this.handleError);
   }
 
-  create(firstname: string): Promise<Student> {
+  create(student: Student): Promise<Student> {
     const url = `${this.studentsUrl}/body/create`
     return this.http
-      .post(this.studentsUrl, JSON.stringify(
+      .post(url, JSON.stringify(
         {
-          firstName: firstname,
-          lastName: "",
-          dateOfBirth: "",
-          gender: 0,
-          currentGrade: 0,
-          status: 0,
-          description: "",
-          systemInfo: "",
+          firstName: student.firstName,
+          lastName: student.lastName,
+          dateOfBirth: student.dateOfBirth,
+          gender: student.gender,
+          currentGrade: student.currentGrade,
+          status: student.status,
+          description: student.description,
+          systemInfo: student.systemInfo,
         }
       ), { headers: this.headers })
       .toPromise()

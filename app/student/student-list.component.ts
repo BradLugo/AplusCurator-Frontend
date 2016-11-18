@@ -7,8 +7,8 @@ import { StudentService } from './student.service';
 @Component({
 	moduleId: module.id,
 	selector: 'student-list',
-	templateUrl: './html/student-list.component.html',
-	styleUrls: ['./css/student-list.component.css']
+	templateUrl: './student-list.component.html',
+	// styleUrls: ['./css/student-list.component.css']
 })
 
 export class StudentListComponent implements OnInit {
@@ -35,8 +35,11 @@ export class StudentListComponent implements OnInit {
 	}
 
 	save() {
-		if (this.newStudent)
+		if (this.newStudent) {
+			this.studentService
+			.create(this.student);
 			this.students.push(this.student);
+		}
 		else
 			this.students[this.findSelectedStudentIndex()] = this.student;
 
@@ -44,24 +47,19 @@ export class StudentListComponent implements OnInit {
 		this.displayDialog = false;
 	}
 
-	delete(student: Student): void {
-		this.studentService
-			.delete(this.selectedStudent)
-			.then(() => {
-				this.students = this.students.filter(h => h !== student);
-				if (this.selectedStudent === student) { this.selectedStudent = null; }
-			});
-		this.students.splice(this.findSelectedStudentIndex(), 1);
+	cancel(student: Student): void {
 		this.student = null;
 		this.displayDialog = false;
 	}
 
 	onRowSelect(event) {
-		this.newStudent = false;
-		// this.student = this.selectedStudent;
-		this.studentService.getStudent(this.selectedStudent.studentId)
-				.then(student => this.student = student);
-		this.displayDialog = true;
+		// this.newStudent = false;
+		// // this.student = this.selectedStudent;
+		// this.studentService.getStudent(this.selectedStudent.studentId)
+		// 		.then(student => this.student = student);
+		// this.displayDialog = true;
+		this.router.navigate(['/studentDetail', this.selectedStudent.studentId]);
+
 	}
 
 	cloneStudent(s: Student): Student {

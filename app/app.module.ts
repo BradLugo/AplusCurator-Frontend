@@ -12,8 +12,11 @@ import { FieldsetModule } from 'primeng/primeng';
 import { ScheduleModule } from 'primeng/primeng';
 import { DialogModule } from 'primeng/primeng';
 import { AccordionModule } from 'primeng/primeng';
-import {DataListModule} from 'primeng/primeng';
-
+import { DataListModule } from 'primeng/primeng';
+import { DragDropModule } from 'primeng/primeng';
+import { TabViewModule } from 'primeng/primeng';
+import { PickListModule } from 'primeng/primeng';
+import { ChartModule } from 'primeng/primeng';
 
 import { AppRoutingModule } from './app.routing';
 
@@ -57,6 +60,10 @@ import { AccountsComponent } from './accounts/accounts.component';
         DialogModule,
         AccordionModule,
         DataListModule,
+        DragDropModule,
+        TabViewModule,
+        PickListModule,
+        ChartModule,
     ],
     declarations: [
         AppComponent,

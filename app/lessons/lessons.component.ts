@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Lessons } from './shared/lessons.model';
-import { LessonsService } from './shared/lessons.service';
+import { Lessons } from './lessons.model';
+import { LessonsService } from './lessons.service';
 
 @Component({
 	moduleId: module.id,
