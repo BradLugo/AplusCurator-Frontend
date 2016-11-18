@@ -10,7 +10,10 @@ import { PanelModule } from 'primeng/primeng';
 import { MenuModule } from 'primeng/primeng';
 import { FieldsetModule } from 'primeng/primeng';
 import { ScheduleModule } from 'primeng/primeng';
-import {DialogModule} from 'primeng/primeng';
+import { DialogModule } from 'primeng/primeng';
+import { AccordionModule } from 'primeng/primeng';
+import {DataListModule} from 'primeng/primeng';
+
 
 import { AppRoutingModule } from './app.routing';
 
@@ -52,6 +55,8 @@ import { AccountsComponent } from './accounts/accounts.component';
         FieldsetModule,
         ScheduleModule,
         DialogModule,
+        AccordionModule,
+        DataListModule,
     ],
     declarations: [
         AppComponent,

@@ -10,5 +10,13 @@ h2, h3 {
   font-weight: lighter;
 }
 body {
-  margin: 2em;
+  margin: 0em;
+}
+
+#banner {
+  background-color: black;
+}
+
+#menubar {
+  background-color: darkred;
 }

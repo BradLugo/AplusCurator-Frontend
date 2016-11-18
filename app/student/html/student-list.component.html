@@ -34,51 +34,51 @@
 		<p-dialog header="Student Details" [(visible)]="displayDialog" showEffect="fade" [modal]="true">
 			<div class="ui-grid ui-grid-responsive ui-fluid" *ngIf="student">
 				<div class="ui-grid-row">
-					<div class="ui-grid-col-4"><label for="vin">ID</label></div>
+					<div class="ui-grid-col-4"><label for="id">ID</label></div>
 					<div class="ui-grid-col-8"><input pInputText id="id" [(ngModel)]="student.studentId" /></div>
 				</div>
 				<div class="ui-grid-row">
-					<div class="ui-grid-col-4"><label for="brand">First Name</label></div>
+					<div class="ui-grid-col-4"><label for="firstName">First Name</label></div>
 					<div class="ui-grid-col-8"><input pInputText id="first name" [(ngModel)]="student.firstName" /></div>
 				</div>
 				<div class="ui-grid-row">
-					<div class="ui-grid-col-4"><label for="brand">Middle Name</label></div>
+					<div class="ui-grid-col-4"><label for="middleName">Middle Name</label></div>
 					<div class="ui-grid-col-8"><input pInputText id="first name" [(ngModel)]="student.middleName" /></div>
 				</div>
 				<div class="ui-grid-row">
-					<div class="ui-grid-col-4"><label for="brand">Last Name</label></div>
+					<div class="ui-grid-col-4"><label for="lastName">Last Name</label></div>
 					<div class="ui-grid-col-8"><input pInputText id="last name" [(ngModel)]="student.lastName" /></div>
 				</div>
 				<div class="ui-grid-row">
-					<div class="ui-grid-col-4"><label for="brand">Address</label></div>
+					<div class="ui-grid-col-4"><label for="address">Address</label></div>
 					<div class="ui-grid-col-8"><input pInputText id="address" [(ngModel)]="student.address" /></div>
 				</div>
 				<div class="ui-grid-row">
-					<div class="ui-grid-col-4"><label for="brand">Email</label></div>
+					<div class="ui-grid-col-4"><label for="email">Email</label></div>
 					<div class="ui-grid-col-8"><input pInputText id="email" [(ngModel)]="student.email" /></div>
 				</div>
 				<div class="ui-grid-row">
-					<div class="ui-grid-col-4"><label for="brand">Phone</label></div>
+					<div class="ui-grid-col-4"><label for="phoneNumber">Phone</label></div>
 					<div class="ui-grid-col-8"><input pInputText id="phone number" [(ngModel)]="student.phoneNumber" /></div>
 				</div>
 				<div class="ui-grid-row">
-					<div class="ui-grid-col-4"><label for="brand">Mobile</label></div>
+					<div class="ui-grid-col-4"><label for="mobilePhoneNumber">Mobile</label></div>
 					<div class="ui-grid-col-8"><input pInputText id="mobile" [(ngModel)]="student.mobilePhoneNumber" /></div>
 				</div>
 				<div class="ui-grid-row">
-					<div class="ui-grid-col-4"><label for="brand">Emergency Contact Name</label></div>
+					<div class="ui-grid-col-4"><label for="emergencyContactName">EC Name</label></div>
 					<div class="ui-grid-col-8"><input pInputText id="last name" [(ngModel)]="student.emergencyContactName" /></div>
 				</div>
 				<div class="ui-grid-row">
-					<div class="ui-grid-col-4"><label for="brand">Emergency Contact Phone</label></div>
+					<div class="ui-grid-col-4"><label for="emergencyContactPhone">EC Phone</label></div>
 					<div class="ui-grid-col-8"><input pInputText id="last name" [(ngModel)]="student.emergencyContactPhone" /></div>
 				</div>
 				<div class="ui-grid-row">
-					<div class="ui-grid-col-4"><label for="color">Grade</label></div>
+					<div class="ui-grid-col-4"><label for="currentGrade">Grade</label></div>
 					<div class="ui-grid-col-8"><input pInputText id="grade" [(ngModel)]="student.currentGrade" /></div>
 				</div>
 				<div class="ui-grid-row">
-					<div class="ui-grid-col-4"><label for="color">Status</label></div>
+					<div class="ui-grid-col-4"><label for="status">Status</label></div>
 					<div class="ui-grid-col-8"><input pInputText id="status" [(ngModel)]="student.status" /></div>
 				</div>
 			</div>

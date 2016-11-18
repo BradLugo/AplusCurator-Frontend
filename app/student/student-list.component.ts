@@ -44,7 +44,13 @@ export class StudentListComponent implements OnInit {
 		this.displayDialog = false;
 	}
 
-	delete() {
+	delete(student: Student): void {
+		this.studentService
+			.delete(this.selectedStudent)
+			.then(() => {
+				this.students = this.students.filter(h => h !== student);
+				if (this.selectedStudent === student) { this.selectedStudent = null; }
+			});
 		this.students.splice(this.findSelectedStudentIndex(), 1);
 		this.student = null;
 		this.displayDialog = false;
@@ -52,7 +58,9 @@ export class StudentListComponent implements OnInit {
 
 	onRowSelect(event) {
 		this.newStudent = false;
-		this.student = this.selectedStudent;
+		// this.student = this.selectedStudent;
+		this.studentService.getStudent(this.selectedStudent.studentId)
+				.then(student => this.student = student);
 		this.displayDialog = true;
 	}
 
