@@ -1,0 +1,34 @@
+<p-fieldset legend="Attendence">
+
+    <h3 class="first">Default</h3>
+
+    <p-tabView>
+
+        <p-tabPanel header="Students">
+            <h3>Students Sign-In and Sign-Out</h3>
+            <p-pickList [showSourceControls]="false" [showTargetControls]="false" [source]="notCurStudent" [target]="curStudent" sourceHeader="Sign-Out"
+                targetHeader="Sign-In" [responsive]="true" (onMoveToTarget)="signInStudent($event)" (onMovetoSource)="signOutStudent($event)">
+                <template let-student>
+                    <div class="ui-helper-clearfix">
+                        <div style="font-size:14px;float:right;margin:15px 5px 0 0">{{student.firstName}} - {{student.lastName}}</div>
+                    </div>
+                </template>
+            </p-pickList>
+        </p-tabPanel>
+
+        <p-tabPanel header="Instructors">
+            <h3>Instructors Sign-In and Sign-Out</h3>
+            <p-pickList [showSourceControls]="false" [showTargetControls]="false" [source]="notCurInstructor" [target]="curInstructor"
+                sourceHeader="Sign-Out" targetHeader="Sign-In" [responsive]="true" (onMoveToTarget)="signInInstructor($event)"
+                (onMovetoSource)="signOutInstructor($event)">
+                <template let-instructor>
+                    <div class="ui-helper-clearfix">
+                        <div style="font-size:14px;float:right;margin:15px 5px 0 0">{{instructor.firstName}} - {{instructor.lastName}}</div>
+                    </div>
+                </template>
+            </p-pickList>
+        </p-tabPanel>
+
+    </p-tabView>
+
+</p-fieldset>

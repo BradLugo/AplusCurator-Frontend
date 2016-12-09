@@ -1,0 +1,110 @@
+<div>
+	<!--<div>
+		<label>Instructor name:</label> <input #instructorName />
+		<button (click)="add(instructorName.value); instructorName.value=''">Add</button>
+	</div>-->
+
+	<p-fieldset legend="Instructors">
+
+		<!--Testing NGPrime-->
+		<div class="ui-widget-header ui-helper-clearfix" style="padding:4px 10px;border-bottom: 0 none">
+			<i class="fa fa-search" style="float:left;margin:4px 4px 0 0"></i>
+			<input #gb type="text" pInputText size="50" style="float:left" placeholder="Global Filter">
+		</div>
+		<p-dataTable #dt [value]="instructors" exportFilename="instructors" [rows]="20" [paginator]="true" [pageLinks]="10" [rowsPerPageOptions]="[10,20,50]"
+			[globalFilter]="gb" selectionMode="single" [(selection)]="selectedInstructor" resizableColumns="true" reorderableColumns="true"
+			(onRowSelect)="onRowSelect($event)" [responsive]="true">
+			<header>List of Instructors</header>
+			<p-column field="firstName" header="First Name" [filter]="true" filterMatchMode="contains"></p-column>
+			<!--<p-column field="middleName" header="Middle Name"></p-column>-->
+			<p-column field="lastName" header="Last Name" [filter]="true" filterMatchMode="contains"></p-column>
+			<!--<p-column field="address" header="Address"></p-column>-->
+			<p-column field="email" header="Email" [filter]="true" filterMatchMode="contains"></p-column>
+			<p-column field="phoneNumber" header="Phone" [filter]="true" filterMatchMode="contains"></p-column>
+			<!--<p-column field="mobilePhoneNumber" header="Mobile"></p-column>-->
+			<!--<p-column field="emergencyContactName" header="EC Name"></p-column>-->
+			<!--<p-column field="emergencyContactPhone" header="EC Phone"></p-column>-->
+			<!--<p-column field="role" header="Role"></p-column>-->
+			<!--<p-column field="status" header="Status"></p-column>-->
+			<!--<p-column field="employmentStartDate" header="Start Date"></p-column>-->
+			<!--<p-column field="employmentTerminationDate" header="End Date"></p-column>-->
+			<footer>
+				<div class="ui-helper-clearfix">
+					<button type="button" pButton (click)="showDialogToAdd()" label="Add"></button>
+					<button type="button" pButton label="CSV" (click)="dt.exportCSV()"></button>
+				</div>
+			</footer>
+		</p-dataTable>
+
+		<p-dialog header="Instructor Details" [(visible)]="displayDialog" showEffect="fade" [width]="400" [modal]="true" [responsive]="true">
+			<div class="ui-grid ui-grid-responsive ui-fluid" *ngIf="instructor">
+				<div class="ui-grid-row">
+					<div class="ui-grid-col-4"><label for="firstName">First Name</label></div>
+					<div class="ui-grid-col-8"><input pInputText id="first name" [(ngModel)]="instructor.firstName" placeholder="Required"/></div>
+				</div>
+				<div class="ui-grid-row">
+					<div class="ui-grid-col-4"><label for="middleName">Middle Name</label></div>
+					<div class="ui-grid-col-8"><input pInputText id="middle name" [(ngModel)]="instructor.middleName" /></div>
+				</div>
+				<div class="ui-grid-row">
+					<div class="ui-grid-col-4"><label for="lastName">Last Name</label></div>
+					<div class="ui-grid-col-8"><input pInputText id="last name" [(ngModel)]="instructor.lastName" placeholder="Required"/></div>
+				</div>
+				<div class="ui-grid-row">
+					<div class="ui-grid-col-4"><label for="address">Address</label></div>
+					<div class="ui-grid-col-8"><input pInputText id="address" [(ngModel)]="instructor.address" placeholder="Required"/></div>
+				</div>
+				<div class="ui-grid-row">
+					<div class="ui-grid-col-4"><label for="email">Email</label></div>
+					<div class="ui-grid-col-8"><input pInputText id="email" [(ngModel)]="instructor.email" placeholder="Required"/></div>
+				</div>
+				<div class="ui-grid-row">
+					<div class="ui-grid-col-4"><label for="phoneNumber">Phome Number</label></div>
+					<p-inputMask mask="9999999999" [disabled]="disabled" [(ngModel)]="instructor.phoneNumber" placeholder="(210)555-5555"></p-inputMask>
+				</div>
+				<div class="ui-grid-row">
+					<div class="ui-grid-col-4"><label for="mobilePhoneNumber">Mobile</label></div>
+					<p-inputMask mask="9999999999" [disabled]="disabled" [(ngModel)]="instructor.mobilePhoneNumber" placeholder="(210)555-5555"></p-inputMask>
+				</div>
+				<div class="ui-grid-row">
+					<div class="ui-grid-col-4"><label for="emergencyContactName">EC Name</label></div>
+					<div class="ui-grid-col-8"><input pInputText id="emergencyContactName" [(ngModel)]="instructor.emergencyContactName" placeholder="Required"/></div>
+				</div>
+				<div class="ui-grid-row">
+					<div class="ui-grid-col-4"><label for="emergencyContactPhone">EC Phone</label></div>
+					<p-inputMask mask="9999999999" [disabled]="disabled" [(ngModel)]="instructor.emergencyContactPhone" placeholder="(210)555-5555"></p-inputMask>
+				</div>
+				<div class="ui-grid-row">
+					<div class="ui-grid-col-4"><label for="role">Role</label></div>
+					<div class="ui-grid-col-8">
+						<p-dropdown [options]="role" [disabled]="disabled" [(ngModel)]="instructor.role"></p-dropdown>
+					</div>
+				</div>
+				<div class="ui-grid-row">
+					<div class="ui-grid-col-4"><label for="status">Status</label></div>
+					<div class="ui-grid-col-8">
+						<p-dropdown [options]="status" [disabled]="disabled" [(ngModel)]="instructor.status"></p-dropdown>
+					</div>
+				</div>
+				<div class="ui-grid-row">
+					<div class="ui-grid-col-4"><label for="employmentStartDate">Start Date</label></div>
+					<div class="ui-grid-col-8">
+						<p-calendar [(ngModel)]="instructor.employmentStartDate" [inline]="true">></p-calendar>
+					</div>
+				</div>
+				<div class="ui-grid-row">
+					<div class="ui-grid-col-4"><label for="employmentTerminationDate">End Date</label></div>
+			<p-inputMask mask="9999/99/99" [disabled]="disabled" [(ngModel)]="instructor.employmentTerminationDate" placeholder="yyyy/mm/dd" slotChar="yyyy/mm/dd"></p-inputMask>
+				</div>
+			</div>
+			<footer>
+				<div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
+					<button type="button" pButton (click)="cancel()" label="Cancel"></button>
+					<button type="button" pButton (click)="save()" label="Save"></button>
+				</div>
+			</footer>
+		</p-dialog>
+
+	</p-fieldset>
+
+</div>

@@ -35,3 +35,10 @@ jspm_packages
 
 # Optional REPL history
 .node_repl_history
+
+# JuliaDickey/Angular-Template/.gitignore
+node_modules/
+typings/
+app/**/*.js
+app/**/*.js.map
+npm-debug.log
