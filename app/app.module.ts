@@ -17,6 +17,12 @@ import { DragDropModule } from 'primeng/primeng';
 import { TabViewModule } from 'primeng/primeng';
 import { PickListModule } from 'primeng/primeng';
 import { ChartModule } from 'primeng/primeng';
+import { PasswordModule } from 'primeng/primeng';
+import {CalendarModule} from 'primeng/primeng';
+import {DropdownModule} from 'primeng/primeng';
+import {InputMaskModule} from 'primeng/primeng';
+import {InputTextareaModule} from 'primeng/primeng';
+
 
 import { AppRoutingModule } from './app.routing';
 
@@ -26,6 +32,8 @@ import { AppRoutingModule } from './app.routing';
 
 import { AppComponent } from './app.component';
 
+import { LoginComponent } from './login/login.component';
+import { MainComponent } from './main/main.component';
 import { HomeComponent } from './home/home.component';
 
 import { AttendenceComponent } from './attendence/attendence.component';
@@ -64,9 +72,16 @@ import { AccountsComponent } from './accounts/accounts.component';
         TabViewModule,
         PickListModule,
         ChartModule,
+        PasswordModule,
+        CalendarModule,
+        DropdownModule,
+        InputMaskModule,
+        InputTextareaModule,
     ],
     declarations: [
         AppComponent,
+        LoginComponent,
+        MainComponent,
         HomeComponent,
         AttendenceComponent,
         StudentListComponent,

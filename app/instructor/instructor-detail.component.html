@@ -29,11 +29,11 @@
 		</div>
 		<div>
 			<label>Phone: </label>
-			<input type="text" pInputText [disabled]="disabled" [(ngModel)]="instructor.phoneNumber" />
+        <p-inputMask mask="9999999999" [disabled]="disabled" [(ngModel)]="instructor.phoneNumber" placeholder="(210)555-5555"></p-inputMask>
 		</div>
 		<div>
 			<label>Mobile: </label>
-			<input type="text" pInputText [disabled]="disabled" [(ngModel)]="instructor.mobilePhoneNumber" />
+        <p-inputMask mask="9999999999" [disabled]="disabled" [(ngModel)]="instructor.mobilePhoneNumber" placeholder="(210)555-5555"></p-inputMask>
 		</div>
 		<div>
 			<label>EC Name: </label>
@@ -41,23 +41,23 @@
 		</div>
 		<div>
 			<label>EC Phone: </label>
-			<input type="text" pInputText [disabled]="disabled" [(ngModel)]="instructor.emergencyContactPhone" />
+        <p-inputMask mask="9999999999" [disabled]="disabled" [(ngModel)]="instructor.emergencyPhoneNumber" placeholder="(210)555-5555"></p-inputMask>
 		</div>
 		<div>
 			<label>Role: </label>
-			<input type="text" pInputText [disabled]="disabled" [(ngModel)]="instructor.role" />
+			<p-dropdown [options]="role" [disabled]="disabled" [(ngModel)]="instructor.role"></p-dropdown>
 		</div>
 		<div>
 			<label>Status: </label>
-			<input type="text" pInputText [disabled]="disabled" [(ngModel)]="instructor.status" />
+			<p-dropdown [options]="status" [disabled]="disabled" [(ngModel)]="instructor.status"></p-dropdown>
 		</div>
 		<div>
 			<label>Start Date: </label>
-			<input type="text" pInputText [disabled]="disabled" [(ngModel)]="instructor.employmentStartDate" />
+			<p-inputMask mask="9999/99/99" [disabled]="disabled" [(ngModel)]="instructor.employmentStartDate" placeholder="yyyy/mm/dd" slotChar="yyyy/mm/dd"></p-inputMask>
 		</div>
 		<div>
 			<label>End Date: </label>
-			<input type="text" pInputText [disabled]="disabled" [(ngModel)]="instructor.employmentTerminationDate" />
+			<p-inputMask mask="9999/99/99" [disabled]="disabled" [(ngModel)]="instructor.employmentTerminationDate" placeholder="yyyy/mm/dd" slotChar="yyyy/mm/dd"></p-inputMask>
 		</div>
 
 	</p-panel>
@@ -65,6 +65,7 @@
 	<div>
 		<button type="button" (click)="goBack()" pButton label="Back"></button>
 		<button type="button" (click)="save()" pButton label="Save"></button>
+		<button type="button" (click)="delete()" pButton label="Delete"></button>
 	</div>
 
 </div>

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
+import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { AttendenceComponent } from './attendence/attendence.component';
 import { StudentListComponent } from './student/student-list.component';
@@ -12,10 +13,11 @@ import { LessonsComponent } from './lessons/lessons.component';
 import { AccountsComponent } from './accounts/accounts.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   
   //{ path: '', component: AppComponent },
   { path: 'home', component: HomeComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'attendence', component: AttendenceComponent },
 
   { path: 'student', component: StudentListComponent },

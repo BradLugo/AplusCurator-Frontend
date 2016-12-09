@@ -26,7 +26,7 @@
 			<!--<p-column field="emergencyContactName" header="EC Name"></p-column>-->
 			<!--<p-column field="emergencyContactPhone" header="EC Phone"></p-column>-->
 			<p-column field="currentGrade" header="Grade" [filter]="true" filterMatchMode="contains"></p-column>
-			<p-column field="status" header="Status" [filter]="true" filterMatchMode="contains"></p-column>
+			<!--<p-column field="status" header="Status" [filter]="true" filterMatchMode="contains"></p-column>-->
 			<footer>
 				<div class="ui-helper-clearfix">
 					<button type="button" pButton (click)="showDialogToAdd()" label="Add"></button>
@@ -35,23 +35,23 @@
 			</footer>
 		</p-dataTable>
 
-		<p-dialog header="Student Details" [(visible)]="displayDialog" showEffect="fade" [modal]="true" [responsive]="true">
+		<p-dialog header="Student Details" [(visible)]="displayDialog" showEffect="fade" [width]="400" [modal]="true" [responsive]="true">
 			<div class="ui-grid ui-grid-responsive ui-fluid" *ngIf="student">
 				<div class="ui-grid-row">
 					<div class="ui-grid-col-4"><label for="firstName">First Name</label></div>
-					<div class="ui-grid-col-8"><input pInputText id="first name" [(ngModel)]="student.firstName" /></div>
+					<div class="ui-grid-col-8"><input pInputText id="first name" [(ngModel)]="student.firstName" placeholder="Required"/></div>
 				</div>
 				<div class="ui-grid-row">
 					<div class="ui-grid-col-4"><label for="lastName">Last Name</label></div>
-					<div class="ui-grid-col-8"><input pInputText id="last name" [(ngModel)]="student.lastName" /></div>
+					<div class="ui-grid-col-8"><input pInputText id="last name" [(ngModel)]="student.lastName" placeholder="Required"/></div>
 				</div>
 				<div class="ui-grid-row">
 					<div class="ui-grid-col-4"><label for="dateOfBirth">Date of Birth</label></div>
-					<div class="ui-grid-col-8"><input pInputText id="dateOfBirth" [(ngModel)]="student.dateOfBirth" /></div>
+			<p-inputMask mask="9999/99/99" [disabled]="disabled" [(ngModel)]="student.dateOfBirth" placeholder="yyyy/mm/dd" slotChar="yyyy/mm/dd"></p-inputMask>
 				</div>
 				<div class="ui-grid-row">
 					<div class="ui-grid-col-4"><label for="gender">Gender</label></div>
-					<div class="ui-grid-col-8"><input pInputText id="gender" [(ngModel)]="student.gender" /></div>
+					<div class="ui-grid-col-8"><p-dropdown [options]="gender" [(ngModel)]="student.gender"></p-dropdown></div>
 				</div>
 				<div class="ui-grid-row">
 					<div class="ui-grid-col-4"><label for="currentGrade">Grade</label></div>
@@ -59,11 +59,11 @@
 				</div>
 				<div class="ui-grid-row">
 					<div class="ui-grid-col-4"><label for="status">Status</label></div>
-					<div class="ui-grid-col-8"><input pInputText id="status" [(ngModel)]="student.status" /></div>
+					<div class="ui-grid-col-8"><p-dropdown [options]="status" [disabled]="disabled" [(ngModel)]="student.status"></p-dropdown></div>
 				</div>
 				<div class="ui-grid-row">
 					<div class="ui-grid-col-4"><label for="description">Description</label></div>
-					<div class="ui-grid-col-8"><input pInputText id="description" [(ngModel)]="student.description" /></div>
+					<div class="ui-grid-col-8"><textarea rows="12" cols="35" pInputTextarea [disabled]="disabled" [(ngModel)]="student.description"></textarea></div>
 				</div>
 				<!--<div class="ui-grid-row">
 					<div class="ui-grid-col-4"><label for="systemInfo">System Info</label></div>

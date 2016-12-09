@@ -1,0 +1,25 @@
+<div class="ui-g">
+
+	<div class="ui-g-12">
+		<button class="btn btn-primary" data-uk-offcanvas="{target:'#my-id'}" [disabled]="disabled">Menu</button>
+	</div>
+
+	<div class="ui-g-12">
+		<router-outlet></router-outlet>
+	</div>
+
+	<div id="my-id" class="uk-offcanvas">
+		<div class="uk-offcanvas-bar">
+			<ul class="uk-nav uk-nav-offcanvas">
+				<li> <a routerLink="/home">Home</a> </li>
+				<li> <a routerLink="/attendence">Attendence</a> </li>
+				<li> <a routerLink="/student">Students</a> </li>
+				<li> <a routerLink="/instructor">Instructors</a> </li>
+				<li> <a routerLink="/lessons">Learning Plans</a> </li>
+				<li> <a routerLink="/accounts">Accounts</a> </li>
+				<li> <a routerLink="/login" onclick="UIkit.offcanvas.hide([force = false]);">Log Out</a> </li>
+			</ul>
+		</div>
+	</div>
+
+</div>

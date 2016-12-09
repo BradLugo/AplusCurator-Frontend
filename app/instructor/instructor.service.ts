@@ -33,28 +33,28 @@ export class InstructorService {
       .catch(this.handleError);
   }
 
-  create(firstname: string): Promise<Instructor> {
+  create(instructor: Instructor): Promise<Instructor> {
     const url = `${this.instructorsUrl}/body/create`
     return this.http
-      .post(this.instructorsUrl, JSON.stringify(
+      .post(url, JSON.stringify(
         {
-          firstName: firstname,
-          lastName: "",
-          middleName: "",
-          address: "",
-          email: "",
-          phoneNumber: "",
-          mobilePhoneNumber: "",
-          emergencyContactName: "",
-          emergencyContactPhone: "",
-          role: 0,
-          status: 0,
-          employmentStartDate: "",
-          employmentTerminationDate: "",
+          firstName: instructor.firstName,
+          lastName: instructor.lastName,
+          middleName: instructor.middleName,
+          address: instructor.address,
+          email: instructor.email,
+          phoneNumber: instructor.phoneNumber,
+          mobilePhoneNumber: instructor.mobilePhoneNumber,
+          emergencyContactName: instructor.emergencyContactName,
+          emergencyContactPhone: instructor.emergencyContactPhone,
+          role: instructor.role,
+          status: instructor.status,
+          employmentStartDate: instructor.employmentStartDate,
+          employmentTerminationDate: instructor.employmentTerminationDate,
         }
       ), { headers: this.headers })
       .toPromise()
-      .then(res => res.json().data)
+      .then(res => res.json())
       .catch(this.handleError);
   }
 
