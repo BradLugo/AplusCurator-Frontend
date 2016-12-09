@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Attendence } from './attendence.model';
 import { Student } from '../student/student.model';
 import { Instructor } from '../instructor/instructor.model';
 import { AttendenceService } from './attendence.service';
@@ -13,57 +12,43 @@ import { AttendenceService } from './attendence.service';
 })
 
 export class AttendenceComponent implements OnInit {
-    attendence: Attendence[] = [];
-    notCurrentStudents: Student[];
-    currentStudents: Student[];
-    selectedStudents: Student[];
-    draggedStudent: Student;
-    notCurrentInstructors: Instructor[];
-    currentInstructors: Instructor[];
-    selectedInstructors: Instructor[];
-    draggedInstructor: Instructor;
+
+    notCurStudent: Student[];
+    curStudent: Student[];
+    notCurInstructor: Instructor[];
+    curInstructor: Instructor[];
+    selectedStudent: Student;
+    selectedInstructor: Instructor;
 
     constructor(private attendenceService: AttendenceService) { }
 
     ngOnInit() {
-        this.selectedStudents = [];
-        this.attendenceService.getNotCurrentStudents().then(students => this.notCurrentStudents = students);
-        this.attendenceService.getNotCurrentInstructors().then(instructors => this.notCurrentInstructors = instructors);
+        this.attendenceService.getCurrentStudents()
+            .then(students => this.curStudent = students);
+        this.attendenceService.getNotCurrentStudents()
+            .then(students => this.notCurStudent = students);
+
+        this.attendenceService.getCurrentInstructors()
+            .then(instructors => this.curInstructor = instructors);
+        this.attendenceService.getNotCurrentInstructors()
+            .then(instructors => this.notCurInstructor = instructors);
     }
 
-    dragStart(event, student: Student) {
-        this.draggedStudent = student;
+    signInStudent(event: any): void {
+        this.attendenceService.signInStudent(event.items[0]);
     }
 
-    dropStudent(event) {
-        if (this.draggedStudent) {
-            this.selectedStudents.push(this.draggedStudent);
-            this.notCurrentStudents.splice(this.findIndex(this.draggedStudent), 1);
-            this.draggedStudent = null;
-        }
+    signOutStudent(event: any): void {
+        this.attendenceService.signOutStudent(event.items[0]);
     }
 
-    dropInstructor(event) {
-        if (this.draggedInstructor) {
-            this.selectedInstructors.push(this.draggedInstructor);
-            // this.notCurrentInstructors.splice(this.findIndex(this.draggedInstructor), 1);
-            this.draggedInstructor = null;
-        }
+    signInInstructor(event: any): void {
+        console.log(event.items[0]);
+        this.attendenceService.signInInstructor(event.items[0]);
     }
 
-    dragEnd(event) {
-        this.draggedStudent = null;
-    }
-
-    findIndex(student: Student) {
-        let index = -1;
-        for (let i = 0; i < this.notCurrentStudents.length; i++) {
-            if (student.studentId === this.notCurrentStudents[i].studentId) {
-                index = i;
-                break;
-            }
-        }
-        return index;
+    signOutInstructor(event: any): void {
+        this.attendenceService.signOutInstructor(event.items[0]);
     }
 
 }

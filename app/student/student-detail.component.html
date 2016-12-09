@@ -17,11 +17,11 @@
 		</div>
 		<div>
 			<label>Date of Birth: </label>
-			<input type="text" pInputText [disabled]="disabled" [(ngModel)]="student.dateOfBirth" />
+			<p-inputMask mask="9999/99/99" [disabled]="disabled" [(ngModel)]="student.dateOfBirth" placeholder="9999/99/99" slotChar="yyyy/mm/dd"></p-inputMask>
 		</div>
 		<div>
 			<label>Gender: </label>
-			<input type="text" pInputText [disabled]="disabled" [(ngModel)]="student.gender" />
+			<p-dropdown [options]="gender" [disabled]="disabled" [(ngModel)]="student.gender"></p-dropdown>
 		</div>
 		<div>
 			<label>Grade: </label>
@@ -29,16 +29,16 @@
 		</div>
 		<div>
 			<label>Status: </label>
-			<input type="text" pInputText [disabled]="disabled" [(ngModel)]="student.status" />
+			<p-dropdown [options]="status" [disabled]="disabled" [(ngModel)]="student.status"></p-dropdown>
 		</div>
 		<div>
 			<label>Description: </label>
-			<input type="text" pInputText [disabled]="disabled" [(ngModel)]="student.description" />
+			<textarea rows="5" cols="35" pInputTextarea [disabled]="disabled" [(ngModel)]="student.description"></textarea>
 		</div>
-		<div>
+		<!--<div>
 			<label>System Info: </label>
 			<input type="text" pInputText [disabled]="disabled" [(ngModel)]="student.systemInfo" />
-		</div>
+		</div>-->
 
 	</p-panel>
 
