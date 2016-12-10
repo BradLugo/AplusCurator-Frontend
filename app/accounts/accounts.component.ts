@@ -74,8 +74,8 @@ export class AccountsComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		this.accountsService.getList().subscribe((res) => {
-			this.accounts = res;
-		});
+		this.accountsService
+			.getList()
+			.subscribe((res) => { this.accounts = res; });
 	}
 }
