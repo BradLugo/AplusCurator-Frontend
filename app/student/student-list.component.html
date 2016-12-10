@@ -1,8 +1,4 @@
 <div>
-	<!--<div>
-		<label>Student name:</label> <input #studentName />
-		<button (click)="add(studentName.value); studentName.value=''">Add</button>
-	</div>-->
 
 	<p-fieldset legend="Students">
 
@@ -17,16 +13,8 @@
 			(onRowSelect)="onRowSelect($event)" [responsive]="true">
 			<header> List of Students </header>
 			<p-column field="firstName" header="First Name" [filter]="true" filterMatchMode="contains"></p-column>
-			<!--<p-column field="middleName" header="Middle Name"></p-column>-->
 			<p-column field="lastName" header="Last Name" [filter]="true" filterMatchMode="contains"></p-column>
-			<!--<p-column field="address" header="Address"></p-column>-->
-			<!--<p-column field="email" header="Email"></p-column>-->
-			<!--<p-column field="phoneNumber" header="Phone"></p-column>-->
-			<!--<p-column field="mobilePhoneNumber" header="Mobile"></p-column>-->
-			<!--<p-column field="emergencyContactName" header="EC Name"></p-column>-->
-			<!--<p-column field="emergencyContactPhone" header="EC Phone"></p-column>-->
 			<p-column field="currentGrade" header="Grade" [filter]="true" filterMatchMode="contains"></p-column>
-			<!--<p-column field="status" header="Status" [filter]="true" filterMatchMode="contains"></p-column>-->
 			<footer>
 				<div class="ui-helper-clearfix">
 					<button type="button" pButton (click)="showDialogToAdd()" label="Add"></button>
@@ -39,19 +27,21 @@
 			<div class="ui-grid ui-grid-responsive ui-fluid" *ngIf="student">
 				<div class="ui-grid-row">
 					<div class="ui-grid-col-4"><label for="firstName">First Name</label></div>
-					<div class="ui-grid-col-8"><input pInputText id="first name" [(ngModel)]="student.firstName" placeholder="Required"/></div>
+					<div class="ui-grid-col-8"><input pInputText id="first name" [(ngModel)]="student.firstName" placeholder="Required" /></div>
 				</div>
 				<div class="ui-grid-row">
 					<div class="ui-grid-col-4"><label for="lastName">Last Name</label></div>
-					<div class="ui-grid-col-8"><input pInputText id="last name" [(ngModel)]="student.lastName" placeholder="Required"/></div>
+					<div class="ui-grid-col-8"><input pInputText id="last name" [(ngModel)]="student.lastName" placeholder="Required" /></div>
 				</div>
 				<div class="ui-grid-row">
 					<div class="ui-grid-col-4"><label for="dateOfBirth">Date of Birth</label></div>
-			<p-inputMask mask="9999/99/99" [disabled]="disabled" [(ngModel)]="student.dateOfBirth" placeholder="yyyy/mm/dd" slotChar="yyyy/mm/dd"></p-inputMask>
+					<p-inputMask mask="9999/99/99" [disabled]="disabled" [(ngModel)]="student.dateOfBirth" placeholder="yyyy/mm/dd" slotChar="yyyy/mm/dd"></p-inputMask>
 				</div>
 				<div class="ui-grid-row">
 					<div class="ui-grid-col-4"><label for="gender">Gender</label></div>
-					<div class="ui-grid-col-8"><p-dropdown [options]="gender" [(ngModel)]="student.gender"></p-dropdown></div>
+					<div class="ui-grid-col-8">
+						<p-dropdown [options]="gender" [(ngModel)]="student.gender"></p-dropdown>
+					</div>
 				</div>
 				<div class="ui-grid-row">
 					<div class="ui-grid-col-4"><label for="currentGrade">Grade</label></div>
@@ -59,16 +49,14 @@
 				</div>
 				<div class="ui-grid-row">
 					<div class="ui-grid-col-4"><label for="status">Status</label></div>
-					<div class="ui-grid-col-8"><p-dropdown [options]="status" [disabled]="disabled" [(ngModel)]="student.status"></p-dropdown></div>
+					<div class="ui-grid-col-8">
+						<p-dropdown [options]="status" [disabled]="disabled" [(ngModel)]="student.status"></p-dropdown>
+					</div>
 				</div>
 				<div class="ui-grid-row">
 					<div class="ui-grid-col-4"><label for="description">Description</label></div>
 					<div class="ui-grid-col-8"><textarea rows="12" cols="35" pInputTextarea [disabled]="disabled" [(ngModel)]="student.description"></textarea></div>
 				</div>
-				<!--<div class="ui-grid-row">
-					<div class="ui-grid-col-4"><label for="systemInfo">System Info</label></div>
-					<div class="ui-grid-col-8"><input pInputText id="systemInfo" [(ngModel)]="student.systemInfo" /></div>
-				</div>-->
 			</div>
 			<footer>
 				<div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">

@@ -10,7 +10,6 @@ import { StudentService } from './student.service';
 	moduleId: module.id,
 	selector: 'student-detail',
 	templateUrl: './student-detail.component.html',
-	// styleUrls: ['./css/student-detail.component.css'],
 	providers: [StudentService]
 })
 
@@ -22,11 +21,7 @@ export class StudentDetailComponent implements OnInit {
 	status: SelectItem[];
 	selectedStatus: string;
 
-	constructor(
-		private studentService: StudentService,
-		private route: ActivatedRoute,
-		private location: Location
-	) {
+	constructor(private studentService: StudentService, private route: ActivatedRoute, private location: Location) {
 		this.gender = [];
 		this.gender.push({ label: 'Select Gender', value: null });
 		this.gender.push({ label: 'Male', value: 1 });
@@ -44,7 +39,8 @@ export class StudentDetailComponent implements OnInit {
 	ngOnInit(): void {
 		this.route.params.forEach((params: Params) => {
 			let id = +params['studentId'];
-			this.studentService.getStudent(id)
+			this.studentService
+				.getStudent(id)
 				.then(student => this.student = student);
 		});
 	}
@@ -55,7 +51,8 @@ export class StudentDetailComponent implements OnInit {
 
 
 	save(): void {
-		this.studentService.update(this.student)
+		this.studentService
+			.update(this.student)
 			.then(() => this.goBack());
 	}
 

@@ -21,6 +21,7 @@ export class MainComponent {
             { label: 'Students', routerLink: ['/student'] },
             { label: 'Instructors', routerLink: ['/instructor'] },
             { label: 'Learning Plans', routerLink: ['/lessons'] },
+            { label: 'Guardians', routerLink: ['/guardian'] },
             { label: 'Accounts', routerLink: ['/accounts'] },
             { label: 'Log Out', routerLink: ['/login'] }
         ]

@@ -27,7 +27,8 @@ export class StudentService {
 
   delete(student: Student): Promise<void> {
     const url = `${this.studentsUrl}/body/delete`;
-    return this.http.post(url, JSON.stringify(student), { headers: this.headers })
+    return this.http
+      .post(url, JSON.stringify(student), { headers: this.headers })
       .toPromise()
       .then(() => null)
       .catch(this.handleError);
