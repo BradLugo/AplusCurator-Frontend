@@ -11,6 +11,7 @@ export class AccountsService {
 	constructor(private http: Http) { }
 
 	getList(): Observable<Accounts[]> {
-		return this.http.get('/api/list').map(res => res.json() as Accounts[]);
+		return this.http.get('/api/list')
+			.map(res => res.json() as Accounts[]);
 	}
 }

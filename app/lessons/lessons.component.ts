@@ -16,8 +16,7 @@ export class LessonsComponent implements OnInit {
 	constructor(private lessonsService: LessonsService) { }
 
 	ngOnInit() {
-		this.lessonsService.getList().subscribe((res) => {
-			this.lessons = res;
-		});
+		this.lessonsService
+			.getList().subscribe((res) => { this.lessons = res; });
 	}
 }
