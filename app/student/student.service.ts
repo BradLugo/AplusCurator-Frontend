@@ -4,12 +4,15 @@ import { Headers, Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
 import { Student } from './student.model';
+import { LearningPlan } from './learningplan.model';
+import { Section } from './section.model';
 
 @Injectable()
 export class StudentService {
 
   private headers = new Headers({ 'Content-Type': 'application/json' });
   private studentsUrl = 'http://localhost:5000/api/students';  // URL to web api
+  private contentUrl = 'http://localhost:5000/api/content';  // URL to web api
 
   constructor(private http: Http) { }
 
@@ -20,6 +23,22 @@ export class StudentService {
       .catch(this.handleError);
   }
 
+  getLearningPlans(id: number): Promise<any> {
+    const url = `${this.contentUrl}/students/id/${id}/learningplans`;
+    return this.http.get(url)
+      .toPromise()
+      .then(response => response.json() as number)
+      .catch(this.handleError);
+  }
+
+  getSections(learningPlanId: number): Promise<Section[]> {
+    const url = `${this.contentUrl}/learningplans/id/${learningPlanId}/sections`;
+    return this.http.get(url)
+      .toPromise()
+      .then(response => response.json() as Section[])
+      .catch(this.handleError);
+  }
+
   getStudent(id: number): Promise<Student> {
     return this.getStudents()
       .then(students => students.find(student => student.studentId === id));
@@ -27,7 +46,8 @@ export class StudentService {
 
   delete(student: Student): Promise<void> {
     const url = `${this.studentsUrl}/body/delete`;
-    return this.http.post(url, JSON.stringify(student), { headers: this.headers })
+    return this.http
+      .post(url, JSON.stringify(student), { headers: this.headers })
       .toPromise()
       .then(() => null)
       .catch(this.handleError);
@@ -59,6 +79,14 @@ export class StudentService {
       .post(url, JSON.stringify(student), { headers: this.headers })
       .toPromise()
       .then(() => student)
+      .catch(this.handleError);
+  }
+
+  getLogs(id: number): Promise<any> {
+    const url = `${this.studentsUrl}/id/${id}/attendance`;
+    return this.http.get(url)
+      .toPromise()
+      .then(response => response.json() as any[])
       .catch(this.handleError);
   }
 

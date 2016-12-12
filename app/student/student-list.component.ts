@@ -22,9 +22,7 @@ export class StudentListComponent implements OnInit {
 	status: SelectItem[];
 	selectedStatus: string;
 
-	constructor(
-		private studentService: StudentService,
-		private router: Router) {
+	constructor(private studentService: StudentService, private router: Router) {
 		this.gender = [];
 		this.gender.push({ label: 'Select Gender', value: null });
 		this.gender.push({ label: 'Male', value: 1 });
@@ -54,7 +52,8 @@ export class StudentListComponent implements OnInit {
 	save() {
 		if (this.newStudent) {
 			this.studentService
-				.create(this.student).then(res => this.students.push(res));
+				.create(this.student)
+				.then(res => this.students.push(res));
 		}
 		else
 			this.students[this.findSelectedStudentIndex()] = this.student;

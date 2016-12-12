@@ -1,0 +1,96 @@
+<div *ngIf="guardian">
+    <div class="ui-g">
+        <div class="ui-g-5">
+            <p-panel>
+                <header>
+                    <div class="ui-helper-clearfix">
+                        <span class="ui-panel-title" style="font-size:20px;display:inline-block;margin-top:2px">{{guardian.firstName}} {{guardian.lastName}} : {{guardian.guardianId}}</span>
+                        <button pButton style="margin-top:0px" label="Edit" (click)="toggleDisabled()"></button>
+                    </div>
+                </header>
+
+                <div><label>First Name: </label>
+                    <input type="text" pInputText [disabled]="disabled" [(ngModel)]="guardian.firstName" />
+                </div>
+                <div>
+                    <label>Last Name: </label>
+                    <input type="text" pInputText [disabled]="disabled" [(ngModel)]="guardian.lastName" />
+                </div>
+                <div>
+                    <label>Address: </label>
+                    <input type="text" pInputText [disabled]="disabled" [(ngModel)]="guardian.address" />
+                </div>
+                <div>
+                    <label>Email: </label>
+                    <input type="text" pInputText [disabled]="disabled" [(ngModel)]="guardian.email" />
+                </div>
+                <div>
+                    <label>Phone: </label>
+                    <p-inputMask mask="9999999999" [disabled]="disabled" [(ngModel)]="guardian.phoneNumber" placeholder="(210)555-5555"></p-inputMask>
+                </div>
+                <div>
+                    <label>Mobile: </label>
+                    <p-inputMask mask="9999999999" [disabled]="disabled" [(ngModel)]="guardian.mobileNumber" placeholder="(210)555-5555"></p-inputMask>
+                </div>
+                <div>
+                    <label>EC Name: </label>
+                    <input type="text" pInputText [disabled]="disabled" [(ngModel)]="guardian.contactName" />
+                </div>
+                <div>
+                    <label>EC Phone: </label>
+                    <p-inputMask mask="9999999999" [disabled]="disabled" [(ngModel)]="guardian.contactNumber" placeholder="(210)555-5555"></p-inputMask>
+                </div>
+                <div>
+                    <label>Role: </label>
+                    <p-dropdown [options]="role" [disabled]="disabled" [(ngModel)]="guardian.role"></p-dropdown>
+                </div>
+                <div>
+                    <label>Status: </label>
+                    <p-dropdown [options]="status" [disabled]="disabled" [(ngModel)]="guardian.status"></p-dropdown>
+                </div>
+
+            </p-panel>
+        </div>
+
+        <div class="ui-g-7">
+            <p-panel>
+                <header>Students with this guardian</header>
+                <p-dataTable #dt [value]="guardianStudents" exportFilename="guardianStudents" [rows]="20" [paginator]="true" [pageLinks]="10"
+                    [rowsPerPageOptions]="[10,20,50]" [globalFilter]="gb" selectionMode="single" [(selection)]="selectedStudent"
+                    resizableColumns="true" reorderableColumns="true" (onRowSelect)="onRowSelect($event)" [responsive]="true">
+                    <header> List of Students </header>
+                    <p-column field="firstName" header="First Name" [filter]="true" filterMatchMode="contains"></p-column>
+                    <p-column field="lastName" header="Last Name" [filter]="true" filterMatchMode="contains"></p-column>
+                    <footer>
+                        <div class="ui-helper-clearfix">
+                            <button type="button" pButton (click)="showDialogToAdd()" label="Add"></button>
+                            <button type="button" pButton label="CSV" (click)="dt.exportCSV()"></button>
+                        </div>
+                    </footer>
+                </p-dataTable>
+            </p-panel>
+        </div>
+    </div>
+
+    <p-dialog header="Students" [(visible)]="displayDialog" showEffect="fade" [width]="500" [modal]="true" [responsive]="true">
+        <p-dataTable #dt [value]="students" exportFilename="students" [rows]="10" [paginator]="true" [pageLinks]="10" [globalFilter]="gb"
+            selectionMode="single" [(selection)]="selectedStudent" [responsive]="true">
+            <header> List of Students </header>
+            <p-column field="firstName" header="First Name" [filter]="true" filterMatchMode="contains"></p-column>
+            <p-column field="lastName" header="Last Name" [filter]="true" filterMatchMode="contains"></p-column>
+        </p-dataTable>
+        <footer>
+            <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
+                <button type="button" pButton (click)="cancel()" label="Cancel"></button>
+                <button type="button" pButton (click)="add()" label="Confirm"></button>
+            </div>
+        </footer>
+    </p-dialog>
+
+    <div>
+        <button type="button" (click)="goBack()" pButton label="Back"></button>
+        <button type="button" (click)="save()" pButton label="Save"></button>
+        <button type="button" (click)="delete()" pButton label="Delete"></button>
+    </div>
+
+</div>

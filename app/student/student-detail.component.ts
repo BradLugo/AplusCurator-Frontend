@@ -4,29 +4,29 @@ import { Location } from '@angular/common';
 import { SelectItem } from 'primeng/primeng';
 
 import { Student } from './student.model';
+import { LearningPlan } from './learningplan.model';
+import { Section } from './section.model';
 import { StudentService } from './student.service';
 
 @Component({
 	moduleId: module.id,
 	selector: 'student-detail',
 	templateUrl: './student-detail.component.html',
-	// styleUrls: ['./css/student-detail.component.css'],
 	providers: [StudentService]
 })
 
 export class StudentDetailComponent implements OnInit {
 	student: Student;
+	attendances: any[] = [];
 	disabled: boolean = true;
 	gender: SelectItem[];
 	selectedGender: string;
 	status: SelectItem[];
 	selectedStatus: string;
+	learningplanId: number = 0;
+	sections: Section[] = [];
 
-	constructor(
-		private studentService: StudentService,
-		private route: ActivatedRoute,
-		private location: Location
-	) {
+	constructor(private studentService: StudentService, private route: ActivatedRoute, private location: Location) {
 		this.gender = [];
 		this.gender.push({ label: 'Select Gender', value: null });
 		this.gender.push({ label: 'Male', value: 1 });
@@ -44,8 +44,17 @@ export class StudentDetailComponent implements OnInit {
 	ngOnInit(): void {
 		this.route.params.forEach((params: Params) => {
 			let id = +params['studentId'];
-			this.studentService.getStudent(id)
+			this.studentService
+				.getStudent(id)
 				.then(student => this.student = student);
+			this.studentService
+				.getLogs(id)
+				.then(attendance => this.attendances = attendance);
+			this.studentService
+				.getLearningPlans(id)
+				.then(m => this.studentService
+					.getSections(m as number)
+					.then(sections => this.sections = sections));
 		});
 	}
 
@@ -55,7 +64,8 @@ export class StudentDetailComponent implements OnInit {
 
 
 	save(): void {
-		this.studentService.update(this.student)
+		this.studentService
+			.update(this.student)
 			.then(() => this.goBack());
 	}
 

@@ -10,6 +10,8 @@ import { StudentDetailComponent } from './student/student-detail.component';
 import { InstructorListComponent } from './instructor/instructor-list.component';
 import { InstructorDetailComponent } from './instructor/instructor-detail.component';
 import { LessonsComponent } from './lessons/lessons.component';
+import { GuardianListComponent } from './guardian/guardian-list.component';
+import { GuardianDetailComponent } from './guardian/guardian-detail.component';
 import { AccountsComponent } from './accounts/accounts.component';
 
 const routes: Routes = [
@@ -27,6 +29,10 @@ const routes: Routes = [
   { path: 'instructorDetail/:instructorId', component: InstructorDetailComponent },
 
   { path: 'lessons', component: LessonsComponent },
+
+  { path: 'guardian', component: GuardianListComponent },
+  { path: 'guardianDetail/:guardianId', component: GuardianDetailComponent },
+
   { path: 'accounts', component: AccountsComponent },
 ];
 
