@@ -56,15 +56,15 @@
 			</p-panel>
 		</div>
 
-		<div class="ui-g-12">
-			<p-fieldset legend="Learning Plans">
-				<h3>Current</h3>
-				<p-accordion [multiple]="true">
-					<p-accordionTab header="Learning Plans">
-						
-					</p-accordionTab>
-				</p-accordion>
-			</p-fieldset>
+		<div class="ui-g-12" *ngIf="sections">
+				<p-fieldset legend="Learning Plans">
+					<h3>Current</h3>
+					<p-accordion [multiple]="true">
+						<p-dataTable #dt [value]="sections" [responsive]="true">
+							<p-column field="title" header="Title"></p-column>
+						</p-dataTable>
+					</p-accordion>
+				</p-fieldset>
 		</div>
 
 	</div>

@@ -23,11 +23,11 @@ export class StudentService {
       .catch(this.handleError);
   }
 
-  getLearningPlans(id: number): Promise<LearningPlan> {
-    const url = `${this.studentsUrl}/id/${id}/learningplans`;
+  getLearningPlans(id: number): Promise<any> {
+    const url = `${this.contentUrl}/students/id/${id}/learningplans`;
     return this.http.get(url)
       .toPromise()
-      .then(response => response.json() as LearningPlan)
+      .then(response => response.json() as number)
       .catch(this.handleError);
   }
 

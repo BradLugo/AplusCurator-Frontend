@@ -23,8 +23,8 @@ export class StudentDetailComponent implements OnInit {
 	selectedGender: string;
 	status: SelectItem[];
 	selectedStatus: string;
-	learningPlan: LearningPlan;
-	sections: Section[];
+	learningplanId: number = 0;
+	sections: Section[] = [];
 
 	constructor(private studentService: StudentService, private route: ActivatedRoute, private location: Location) {
 		this.gender = [];
@@ -52,10 +52,9 @@ export class StudentDetailComponent implements OnInit {
 				.then(attendance => this.attendances = attendance);
 			this.studentService
 				.getLearningPlans(id)
-				.then(learningPlans => this.learningPlan = learningPlans);
-			this.studentService
-				.getSections(this.learningPlan.learningplanId)
-				.then(sections => this.sections = sections);
+				.then(m => this.studentService
+					.getSections(m as number)
+					.then(sections => this.sections = sections));
 		});
 	}
 
