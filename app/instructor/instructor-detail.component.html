@@ -1,71 +1,80 @@
 <div *ngIf="instructor">
-	<p-panel>
-
-		<header>
-			<div class="ui-helper-clearfix">
-				<span class="ui-panel-title" style="font-size:20px;display:inline-block;margin-top:2px">{{instructor.firstName}} {{instructor.lastName}} : {{instructor.instructorId}}</span>
-				<button pButton style="margin-top:0px" label="Edit" (click)="toggleDisabled()"></button>
+	<div class="ui-g">
+		<div class="ui-g-6">
+			<p-panel>
+				<header>
+					{{instructor.firstName}} {{instructor.lastName}} : {{instructor.instructorId}}
+					<button pButton style="margin-top:0px" label="Edit" (click)="toggleDisabled()"></button>
+				</header>
+				<div>
+					<label>First Name: </label>
+					<input type="text" pInputText [disabled]="disabled" [(ngModel)]="instructor.firstName" />
+				</div>
+				<div>
+					<label>Middle Name: </label>
+					<input type="text" pInputText [disabled]="disabled" [(ngModel)]="instructor.middleName" />
+				</div>
+				<div>
+					<label>Last Name: </label>
+					<input type="text" pInputText [disabled]="disabled" [(ngModel)]="instructor.lastName" />
+				</div>
+				<div>
+					<label>Address: </label>
+					<input type="text" pInputText [disabled]="disabled" [(ngModel)]="instructor.address" />
+				</div>
+				<div>
+					<label>Email: </label>
+					<input type="text" pInputText [disabled]="disabled" [(ngModel)]="instructor.email" />
+				</div>
+				<div>
+					<label>Phone: </label>
+					<p-inputMask mask="9999999999" [disabled]="disabled" [(ngModel)]="instructor.phoneNumber" placeholder="(210)555-5555"></p-inputMask>
+				</div>
+				<div>
+					<label>Mobile: </label>
+					<p-inputMask mask="9999999999" [disabled]="disabled" [(ngModel)]="instructor.mobilePhoneNumber" placeholder="(210)555-5555"></p-inputMask>
+				</div>
+				<div>
+					<label>EC Name: </label>
+					<input type="text" pInputText [disabled]="disabled" [(ngModel)]="instructor.emergencyContactName" />
+				</div>
+				<div>
+					<label>EC Phone: </label>
+					<p-inputMask mask="9999999999" [disabled]="disabled" [(ngModel)]="instructor.emergencyContactPhone" placeholder="(210)555-5555"></p-inputMask>
+				</div>
+				<div>
+					<label>Role: </label>
+					<p-dropdown [options]="role" [disabled]="disabled" [(ngModel)]="instructor.role"></p-dropdown>
+				</div>
+				<div>
+					<label>Status: </label>
+					<p-dropdown [options]="status" [disabled]="disabled" [(ngModel)]="instructor.status"></p-dropdown>
+				</div>
+				<div>
+					<label>Start Date: </label>
+					<p-inputMask mask="9999/99/99" [disabled]="disabled" [(ngModel)]="instructor.employmentStartDate" placeholder="yyyy/mm/dd"
+						slotChar="yyyy/mm/dd"></p-inputMask>
+				</div>
+				<div>
+					<label>End Date: </label>
+					<p-inputMask mask="9999/99/99" [disabled]="disabled" [(ngModel)]="instructor.employmentTerminationDate" placeholder="yyyy/mm/dd"
+						slotChar="yyyy/mm/dd"></p-inputMask>
+				</div>
+			</p-panel>
+			<div>
+				<button type="button" (click)="goBack()" pButton label="Back"></button>
+				<button type="button" (click)="save()" pButton label="Save"></button>
+				<button type="button" (click)="delete()" pButton label="Delete"></button>
 			</div>
-		</header>
-
-		<div><label>First Name: </label>
-			<input type="text" pInputText [disabled]="disabled" [(ngModel)]="instructor.firstName" />
-		</div>
-		<div>
-			<label>Middle Name: </label>
-			<input type="text" pInputText [disabled]="disabled" [(ngModel)]="instructor.middleName" />
-		</div>
-		<div>
-			<label>Last Name: </label>
-			<input type="text" pInputText [disabled]="disabled" [(ngModel)]="instructor.lastName" />
-		</div>
-		<div>
-			<label>Address: </label>
-			<input type="text" pInputText [disabled]="disabled" [(ngModel)]="instructor.address" />
-		</div>
-		<div>
-			<label>Email: </label>
-			<input type="text" pInputText [disabled]="disabled" [(ngModel)]="instructor.email" />
-		</div>
-		<div>
-			<label>Phone: </label>
-        <p-inputMask mask="9999999999" [disabled]="disabled" [(ngModel)]="instructor.phoneNumber" placeholder="(210)555-5555"></p-inputMask>
-		</div>
-		<div>
-			<label>Mobile: </label>
-        <p-inputMask mask="9999999999" [disabled]="disabled" [(ngModel)]="instructor.mobilePhoneNumber" placeholder="(210)555-5555"></p-inputMask>
-		</div>
-		<div>
-			<label>EC Name: </label>
-			<input type="text" pInputText [disabled]="disabled" [(ngModel)]="instructor.emergencyContactName" />
-		</div>
-		<div>
-			<label>EC Phone: </label>
-        <p-inputMask mask="9999999999" [disabled]="disabled" [(ngModel)]="instructor.emergencyContactPhone" placeholder="(210)555-5555"></p-inputMask>
-		</div>
-		<div>
-			<label>Role: </label>
-			<p-dropdown [options]="role" [disabled]="disabled" [(ngModel)]="instructor.role"></p-dropdown>
-		</div>
-		<div>
-			<label>Status: </label>
-			<p-dropdown [options]="status" [disabled]="disabled" [(ngModel)]="instructor.status"></p-dropdown>
-		</div>
-		<div>
-			<label>Start Date: </label>
-			<p-inputMask mask="9999/99/99" [disabled]="disabled" [(ngModel)]="instructor.employmentStartDate" placeholder="yyyy/mm/dd" slotChar="yyyy/mm/dd"></p-inputMask>
-		</div>
-		<div>
-			<label>End Date: </label>
-			<p-inputMask mask="9999/99/99" [disabled]="disabled" [(ngModel)]="instructor.employmentTerminationDate" placeholder="yyyy/mm/dd" slotChar="yyyy/mm/dd"></p-inputMask>
 		</div>
 
-	</p-panel>
+		<div class="ui-g-6">
+			<p-panel>
+				<header>Attendence Log</header>
+				<h1>Attendence Component</h1>
+			</p-panel>
+		</div>
 
-	<div>
-		<button type="button" (click)="goBack()" pButton label="Back"></button>
-		<button type="button" (click)="save()" pButton label="Save"></button>
-		<button type="button" (click)="delete()" pButton label="Delete"></button>
 	</div>
 
 </div>

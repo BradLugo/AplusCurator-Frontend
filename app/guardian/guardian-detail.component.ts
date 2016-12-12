@@ -91,6 +91,8 @@ export class GuardianDetailComponent implements OnInit {
 	}
 
 	add() {
+		this.guardianService.updateStudent(this.guardian.guardianId,this.selectedStudent.studentId);
+		this.guardianStudents.push(this.selectedStudent);
 		this.selectedStudent = null;
 		this.displayDialog = false;
 	}

@@ -4,6 +4,8 @@ import { Location } from '@angular/common';
 import { SelectItem } from 'primeng/primeng';
 
 import { Student } from './student.model';
+import { LearningPlan } from './learningplan.model';
+import { Section } from './section.model';
 import { StudentService } from './student.service';
 
 @Component({
@@ -15,11 +17,14 @@ import { StudentService } from './student.service';
 
 export class StudentDetailComponent implements OnInit {
 	student: Student;
+	attendances: any[] = [];
 	disabled: boolean = true;
 	gender: SelectItem[];
 	selectedGender: string;
 	status: SelectItem[];
 	selectedStatus: string;
+	learningPlan: LearningPlan;
+	sections: Section[];
 
 	constructor(private studentService: StudentService, private route: ActivatedRoute, private location: Location) {
 		this.gender = [];
@@ -42,6 +47,15 @@ export class StudentDetailComponent implements OnInit {
 			this.studentService
 				.getStudent(id)
 				.then(student => this.student = student);
+			this.studentService
+				.getLogs(id)
+				.then(attendance => this.attendances = attendance);
+			this.studentService
+				.getLearningPlans(id)
+				.then(learningPlans => this.learningPlan = learningPlans);
+			this.studentService
+				.getSections(this.learningPlan.learningplanId)
+				.then(sections => this.sections = sections);
 		});
 	}
 

@@ -78,6 +78,14 @@ export class GuardianService {
 			.catch(this.handleError);
 	}
 
+	updateStudent(guardianId: number, studentId: number): Promise<Student> {
+		const url = `${this.guardiansUrl}/id/${guardianId}/add/student/id/${studentId}`;
+		return this.http.get(url)
+			.toPromise()
+			.then(response => response.json())
+			.catch(this.handleError);
+	}
+
 	private handleError(error: any): Promise<any> {
 		console.error('An error occurred', error); // for demo purposes only
 		return Promise.reject(error.message || error);

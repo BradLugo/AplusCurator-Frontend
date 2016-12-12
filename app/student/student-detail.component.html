@@ -1,47 +1,71 @@
 <div *ngIf="student">
-	<p-panel>
+	<div class="ui-g">
+		<div class="ui-g-5">
+			<p-panel>
+				<header>
+					<div class="ui-helper-clearfix">
+						<span class="ui-panel-title" style="font-size:20px;display:inline-block;margin-top:2px">{{student.firstName}} {{student.lastName}} : {{student.studentId}}</span>
+						<button pButton style="margin-top:0px" label="Edit" (click)="toggleDisabled()"></button>
+					</div>
+				</header>
 
-		<header>
-			<div class="ui-helper-clearfix">
-				<span class="ui-panel-title" style="font-size:20px;display:inline-block;margin-top:2px">{{student.firstName}} {{student.lastName}} : {{student.studentId}}</span>
-				<button pButton style="margin-top:0px" label="Edit" (click)="toggleDisabled()"></button>
-			</div>
-		</header>
+				<div><label>First Name: </label>
+					<input type="text" pInputText [disabled]="disabled" [(ngModel)]="student.firstName" />
+				</div>
+				<div>
+					<label>Last Name: </label>
+					<input type="text" pInputText [disabled]="disabled" [(ngModel)]="student.lastName" />
+				</div>
+				<div>
+					<label>Date of Birth: </label>
+					<p-inputMask mask="9999/99/99" [disabled]="disabled" [(ngModel)]="student.dateOfBirth" placeholder="9999/99/99" slotChar="yyyy/mm/dd"></p-inputMask>
+				</div>
+				<div>
+					<label>Gender: </label>
+					<p-dropdown [options]="gender" [disabled]="disabled" [(ngModel)]="student.gender"></p-dropdown>
+				</div>
+				<div>
+					<label>Grade: </label>
+					<input type="text" pInputText [disabled]="disabled" [(ngModel)]="student.currentGrade" />
+				</div>
+				<div>
+					<label>Status: </label>
+					<p-dropdown [options]="status" [disabled]="disabled" [(ngModel)]="student.status"></p-dropdown>
+				</div>
+				<div>
+					<label>Description: </label>
+					<textarea rows="5" cols="35" pInputTextarea [disabled]="disabled" [(ngModel)]="student.description"></textarea>
+				</div>
 
-		<div><label>First Name: </label>
-			<input type="text" pInputText [disabled]="disabled" [(ngModel)]="student.firstName" />
-		</div>
-		<div>
-			<label>Last Name: </label>
-			<input type="text" pInputText [disabled]="disabled" [(ngModel)]="student.lastName" />
-		</div>
-		<div>
-			<label>Date of Birth: </label>
-			<p-inputMask mask="9999/99/99" [disabled]="disabled" [(ngModel)]="student.dateOfBirth" placeholder="9999/99/99" slotChar="yyyy/mm/dd"></p-inputMask>
-		</div>
-		<div>
-			<label>Gender: </label>
-			<p-dropdown [options]="gender" [disabled]="disabled" [(ngModel)]="student.gender"></p-dropdown>
-		</div>
-		<div>
-			<label>Grade: </label>
-			<input type="text" pInputText [disabled]="disabled" [(ngModel)]="student.currentGrade" />
-		</div>
-		<div>
-			<label>Status: </label>
-			<p-dropdown [options]="status" [disabled]="disabled" [(ngModel)]="student.status"></p-dropdown>
-		</div>
-		<div>
-			<label>Description: </label>
-			<textarea rows="5" cols="35" pInputTextarea [disabled]="disabled" [(ngModel)]="student.description"></textarea>
+				<div>
+					<button type="button" (click)="goBack()" pButton label="Back"></button>
+					<button type="button" (click)="save()" pButton label="Save"></button>
+					<button type="button" (click)="delete()" pButton label="Delete"></button>
+				</div>
+			</p-panel>
 		</div>
 
-	</p-panel>
+		<div class="ui-g-7">
+			<p-panel>
+				<header>
+					Attendence Log Component
+				</header>
+				<p-dataTable [value]="attendances">
+					<p-column field="attendanceDate" header="Attendance Logs" [sortable]="true"></p-column>
+				</p-dataTable>
+			</p-panel>
+		</div>
 
-	<div>
-		<button type="button" (click)="goBack()" pButton label="Back"></button>
-		<button type="button" (click)="save()" pButton label="Save"></button>
-		<button type="button" (click)="delete()" pButton label="Delete"></button>
+		<div class="ui-g-12">
+			<p-fieldset legend="Learning Plans">
+				<h3>Current</h3>
+				<p-accordion [multiple]="true">
+					<p-accordionTab header="Learning Plans">
+						
+					</p-accordionTab>
+				</p-accordion>
+			</p-fieldset>
+		</div>
+
 	</div>
-
 </div>

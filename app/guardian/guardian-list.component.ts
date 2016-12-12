@@ -32,8 +32,8 @@ export class GuardianListComponent implements OnInit {
 		this.status = [];
 		this.status.push({ label: 'Select Status', value: -1 });
 		this.status.push({ label: 'Active', value: 0 });
-		this.status.push({ label: 'Hold', value: 3 });
-		this.status.push({ label: 'Inactive', value: 4 });
+		this.status.push({ label: 'Hold', value: 1 });
+		this.status.push({ label: 'Inactive', value: 2 });
 	}
 
 	getGuardians(): void {
