@@ -23,7 +23,7 @@ import { PickListModule } from 'primeng/primeng';
 import { SharedModule } from 'primeng/primeng';
 import { ScheduleModule } from 'primeng/primeng';
 import { TabViewModule } from 'primeng/primeng';
-import {RadioButtonModule} from 'primeng/primeng';
+import { RadioButtonModule } from 'primeng/primeng';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing';
