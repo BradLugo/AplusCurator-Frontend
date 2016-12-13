@@ -57,15 +57,89 @@
 		</div>
 
 		<div class="ui-g-12" *ngIf="sections">
-				<p-fieldset legend="Learning Plans">
-					<h3>Current</h3>
-					<p-accordion [multiple]="true">
-						<p-dataTable #dt [value]="sections" [responsive]="true">
-							<p-column field="title" header="Title"></p-column>
-						</p-dataTable>
-					</p-accordion>
-				</p-fieldset>
+			<p-fieldset legend="Learning Plans">
+				<button type="button" pButton (click)="showDialogToNewLearningPlan()" label="New Learning Plan"></button>
+				<div *ngIf="sections">
+					<table *ngFor="let section of sections">
+						<ul>
+							<a href="http://localhost:5000/api/content/sections/id/{{section.sectionId}}/pdf">{{section.title}}</a>
+						</ul>
+					</table>
+				</div>
+				<!--<p-dataTable #dt [value]="sections" [responsive]="true" selectionMode="single" [(selection)]="selectedSection" (onRowSelect)="onRowSelect($event)">
+						<p-column field="title" header="Title"></p-column>
+						<p-column field="sectionId" header="ID"></p-column>
+					</p-dataTable>-->
+			</p-fieldset>
 		</div>
+
+		<p-dialog header="New Learning Plan" [(visible)]="displayDialog" showEffect="fade" [width]="600" [modal]="true" [responsive]="true">
+
+			<h3 class="first">Problem 1:</h3>
+			<div class="ui-g" style="margin-bottom:10px">
+				<div class="ui-g-2">
+					<p-radioButton name="prob1" value="0" label="0" [(ngModel)]="problem1"></p-radioButton>
+				</div>
+				<div class="ui-g-2">
+					<p-radioButton name="prob1" value="1" label="1/4" [(ngModel)]="problem1"></p-radioButton>
+				</div>
+				<div class="ui-g-2">
+					<p-radioButton name="prob1" value="2" label="1/2" [(ngModel)]="problem1"></p-radioButton>
+				</div>
+				<div class="ui-g-2">
+					<p-radioButton name="prob1" value="3" label="3/4" [(ngModel)]="problem1"></p-radioButton>
+				</div>
+				<div class="ui-g-2">
+					<p-radioButton name="prob1" value="4" label="1" [(ngModel)]="problem1"></p-radioButton>
+				</div>
+			</div>
+
+			<h3 class="first">Problem 2:</h3>
+			<div class="ui-g" style="margin-bottom:10px">
+				<div class="ui-g-2">
+					<p-radioButton name="prob2" value="0" label="0" [(ngModel)]="problem2"></p-radioButton>
+				</div>
+				<div class="ui-g-2">
+					<p-radioButton name="prob2" value="1" label="1/4" [(ngModel)]="problem2"></p-radioButton>
+				</div>
+				<div class="ui-g-2">
+					<p-radioButton name="prob2" value="2" label="1/2" [(ngModel)]="problem2"></p-radioButton>
+				</div>
+				<div class="ui-g-2">
+					<p-radioButton name="prob2" value="3" label="3/4" [(ngModel)]="problem2"></p-radioButton>
+				</div>
+				<div class="ui-g-2">
+					<p-radioButton name="prob2" value="4" label="1" [(ngModel)]="problem2"></p-radioButton>
+				</div>
+			</div>
+
+			<h3 class="first">Problem 3:</h3>
+			<div class="ui-g" style="margin-bottom:10px">
+				<div class="ui-g-2">
+					<p-radioButton name="prob3" value="0" label="0" [(ngModel)]="problem3"></p-radioButton>
+				</div>
+				<div class="ui-g-2">
+					<p-radioButton name="prob3" value="1" label="1/4" [(ngModel)]="problem3"></p-radioButton>
+				</div>
+				<div class="ui-g-2">
+					<p-radioButton name="prob3" value="2" label="1/2" [(ngModel)]="problem3"></p-radioButton>
+				</div>
+				<div class="ui-g-2">
+					<p-radioButton name="prob3" value="3" label="3/4" [(ngModel)]="problem3"></p-radioButton>
+				</div>
+				<div class="ui-g-2">
+					<p-radioButton name="prob3" value="4" label="1" [(ngModel)]="problem3"></p-radioButton>
+				</div>
+			</div>
+
+
+			<footer>
+				<div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
+					<button type="button" pButton (click)="cancel()" label="Cancel"></button>
+					<button type="button" pButton (click)="addLP()" label="Add"></button>
+				</div>
+			</footer>
+		</p-dialog>
 
 	</div>
 </div>

@@ -6,6 +6,7 @@ import 'rxjs/add/operator/toPromise';
 import { Student } from './student.model';
 import { LearningPlan } from './learningplan.model';
 import { Section } from './section.model';
+import { Assessment } from './assessment.model';
 
 @Injectable()
 export class StudentService {
@@ -36,6 +37,23 @@ export class StudentService {
     return this.http.get(url)
       .toPromise()
       .then(response => response.json() as Section[])
+      .catch(this.handleError);
+  }
+
+  createLearningPlan(assessment: Assessment): Promise<Assessment> {
+    const url = `${this.contentUrl}/learningplan/body/create`;
+    return this.http
+      .post(url, JSON.stringify(
+        {
+          rawQuestionTopicList: assessment.rawQuestionTopicList,
+          rawQuestionScoreList: assessment.rawQuestionScoreList,
+          pdfPath: assessment.pdfPath,
+          completed: assessment.completed,
+          studentId: assessment.studentId
+        }
+      ), { headers: this.headers })
+      .toPromise()
+      .then(() => assessment)
       .catch(this.handleError);
   }
 
@@ -88,6 +106,13 @@ export class StudentService {
       .toPromise()
       .then(response => response.json() as any[])
       .catch(this.handleError);
+  }
+
+  getPDF(id: number): Promise<any> {
+        const url = `${this.contentUrl}/sections/id/${id}/pdf`;
+        return this.http.get(url)
+        .toPromise()
+        .then(res => res);
   }
 
   private handleError(error: any): Promise<any> {
