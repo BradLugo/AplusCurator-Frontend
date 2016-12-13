@@ -24,9 +24,7 @@ export class InstructorListComponent implements OnInit {
 	role: SelectItem[];
 	selectedRole: string;
 
-	constructor(
-		private instructorService: InstructorService,
-		private router: Router) {
+	constructor(private instructorService: InstructorService, private router: Router) {
 		this.role = [];
 		this.role.push({ label: 'Select Status', value: -1 });
 		this.role.push({ label: 'Instructor', value: 0 });
@@ -55,7 +53,8 @@ export class InstructorListComponent implements OnInit {
 	save() {
 		if (this.newInstructor) {
 			this.instructorService
-				.create(this.instructor).then(res => this.instructors.push(res));
+				.create(this.instructor)
+				.then(res => this.instructors.push(res));
 		}
 		else
 			this.instructors[this.findSelectedInstructorIndex()] = this.instructor;
